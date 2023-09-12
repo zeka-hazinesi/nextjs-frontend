@@ -1,20 +1,23 @@
-'use client'
-import React, {useState} from 'react';
-import DropdownMenu from './dropdown';
-import Modal from './githubmodal';
+"use client";
+import React, { useState } from "react";
+import DropdownMenu from "./dropdown";
+import Modal from "./githubmodal";
+import { supabase } from "@/lib/supabase";
 
 const NavigationBar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
 
+  console.log();
+
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      section.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -35,7 +38,6 @@ const NavigationBar = () => {
     setModalOpen(false);
   };
 
-
   return (
     <nav className="bg-blue-500 p-4 flex justify-between items-center">
       <div className="text-white text-xl font-semibold">
@@ -49,7 +51,7 @@ const NavigationBar = () => {
       <ul className="flex space-x-6 mr-6">
         <li>
           <button
-            onClick={() => scrollToSection('use-cases-section')}
+            onClick={() => scrollToSection("use-cases-section")}
             className="text-white cursor-pointer"
           >
             Use Cases
@@ -57,7 +59,7 @@ const NavigationBar = () => {
         </li>
         <li>
           <button
-            onClick={() => scrollToSection('pricing-section')}
+            onClick={() => scrollToSection("pricing")}
             className="text-white cursor-pointer"
           >
             Pricing
@@ -65,7 +67,7 @@ const NavigationBar = () => {
         </li>
         <li>
           <button
-            onClick={() => scrollToSection('faq-section')}
+            onClick={() => scrollToSection("faq")}
             className="text-white cursor-pointer"
           >
             FAQ
@@ -73,14 +75,12 @@ const NavigationBar = () => {
         </li>
         <li>
           <button
-          onClick={toggleDropdown}
-          className="text-xl text-white cursor-pointer"
-        >
-        ⚙
-        </button>
-        {isDropdownOpen && (
-          <DropdownMenu openModal={openModal} />
-        )}
+            onClick={toggleDropdown}
+            className="text-xl text-white cursor-pointer"
+          >
+            ⚙
+          </button>
+          {isDropdownOpen && <DropdownMenu openModal={openModal} />}
         </li>
       </ul>
       <Modal isOpen={isModalOpen} onClose={closeModal} />
