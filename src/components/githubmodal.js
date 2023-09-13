@@ -17,6 +17,7 @@ const Modal = ({ isOpen, onClose }) => {
   async function signInWithGitHub() {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "github",
+      redirectTo: window.location.origin,
     });
     setUser(data.user);
   }

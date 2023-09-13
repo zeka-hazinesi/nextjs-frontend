@@ -1,4 +1,3 @@
-import Image from "next/image";
 import ImageEditor from "@/components/draganddrop";
 
 export default function Home() {
