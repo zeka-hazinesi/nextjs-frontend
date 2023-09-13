@@ -27,6 +27,8 @@ const NavigationBar = () => {
       }
     };
 
+  
+
     window.addEventListener('scroll', handleScroll);
 
     // Entferne den Event-Listener, wenn die Komponente unmontiert wird
@@ -35,8 +37,21 @@ const NavigationBar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const imageEditor = document.getElementById("image-editor");
+
+    if(isModalOpen && imageEditor != null){
+      imageEditor.style.pointerEvents = 'none';
+      imageEditor.style.zIndex = -999;
+    } else {
+      imageEditor.style.pointerEvents = 'auto';
+      imageEditor.style.zIndex = 1;
+    }
+  })
+
   async function checkUser() {
     const user = await supabase.auth.getUser();
+    console.log(user);
     setUser(user);
   }
 
@@ -67,6 +82,7 @@ const NavigationBar = () => {
   const closeModal = () => {
     setModalOpen(false);
   };
+
 
   return (
     <nav className={`${

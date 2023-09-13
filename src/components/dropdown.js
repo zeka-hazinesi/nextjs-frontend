@@ -5,7 +5,7 @@ const DropdownMenu = ({openModal, user}) => {
     <div className="absolute top-14 right-0 mt-2 w-40 bg-white border border-gray-300 shadow-lg rounded-lg">
       <ul>
         <li>
-          {user ? (
+          {user.data.user != null ? (
             <>
             <button 
             className="px-4 py-2 w-full text-left hover:bg-gray-100"

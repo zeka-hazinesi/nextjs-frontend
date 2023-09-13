@@ -4,9 +4,9 @@ import ImageEditor from "@/components/draganddrop";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>
+      <div id="image-editor" className="z-1">
         <ImageEditor />
-      </div>
+        </div>
       <div id="pricing" className="homepage-block" bis_skin_checked="1">
         <div className="space-y-12 w-full sm:w-auto" bis_skin_checked="1">
           <h1 className="font-alt text-4xl sm:text-6xl">Pricing</h1>

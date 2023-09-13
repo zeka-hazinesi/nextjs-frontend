@@ -70,6 +70,7 @@ const ImageEditor = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            zIndex: 1
           }}
         >
           <p style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
