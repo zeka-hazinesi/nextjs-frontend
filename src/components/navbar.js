@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DropdownMenu from "./dropdown";
 import Modal from "./githubmodal";
 import { supabase } from "@/lib/supabase";
@@ -7,8 +7,38 @@ import { supabase } from "@/lib/supabase";
 const NavigationBar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  console.log();
+  useEffect(() => {
+    checkUser();
+    window.addEventListener('hashchange', function() {
+      checkUser();
+    });
+  }, []);
+
+  useEffect(() => {
+    // Füge einen Event-Listener für das Scrollen hinzu
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Entferne den Event-Listener, wenn die Komponente unmontiert wird
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  async function checkUser() {
+    const user = await supabase.auth.getUser();
+    setUser(user);
+  }
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -39,7 +69,9 @@ const NavigationBar = () => {
   };
 
   return (
-    <nav className="bg-blue-500 p-4 flex justify-between items-center">
+    <nav className={`${
+      isScrolled ? 'bg-blue-500' : 'bg-transparent'
+    } p-4 flex justify-between items-center fixed top-0 w-full transition-all duration-300`}>
       <div className="text-white text-xl font-semibold">
         <button
           onClick={scrollToTop}
@@ -80,7 +112,7 @@ const NavigationBar = () => {
           >
             ⚙
           </button>
-          {isDropdownOpen && <DropdownMenu openModal={openModal} />}
+          {isDropdownOpen && <DropdownMenu openModal={openModal} user={user} />}
         </li>
       </ul>
       <Modal isOpen={isModalOpen} onClose={closeModal} />

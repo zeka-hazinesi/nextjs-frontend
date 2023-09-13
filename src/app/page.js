@@ -1,41 +1,45 @@
 import Image from "next/image";
+import ImageEditor from "@/components/draganddrop";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div id="pricing" class="homepage-block" bis_skin_checked="1">
-        <div class="space-y-12 w-full sm:w-auto" bis_skin_checked="1">
-          <h1 class="font-alt text-4xl sm:text-6xl">Pricing</h1>
+      <div>
+        <ImageEditor />
+      </div>
+      <div id="pricing" className="homepage-block" bis_skin_checked="1">
+        <div className="space-y-12 w-full sm:w-auto" bis_skin_checked="1">
+          <h1 className="font-alt text-4xl sm:text-6xl">Pricing</h1>
           <div
-            class="flex text-left justify-evenly pricing"
+            className="flex text-left justify-evenly pricing"
             bis_skin_checked="1"
           >
-            <div class="flex flex-col items-center w-56" bis_skin_checked="1">
-              <p class="text-center mb-12 bg-gray-200 px-4 py-1 rounded-full">
+            <div className="flex flex-col items-center w-56" bis_skin_checked="1">
+              <p className="text-center mb-12 bg-gray-200 px-4 py-1 rounded-full">
                 Free
               </p>
-              <p class="price font-varent">0</p>
-              <ul class="sm:list-disc">
+              <p className="price font-varent">0</p>
+              <ul className="sm:list-disc">
                 <li>Unlimited images</li>
                 <li>Resolution limited to 720p</li>
               </ul>
             </div>
-            <div class="flex flex-col items-center w-56" bis_skin_checked="1">
-              <p class="text-center mb-12 bg-primary px-4 py-1 rounded-full">
+            <div className="flex flex-col items-center w-56" bis_skin_checked="1">
+              <p className="text-center mb-12 bg-primary px-4 py-1 rounded-full">
                 Pro
               </p>
-              <p class="price font-varent">
+              <p className="price font-varent">
                 3 <span>starting from</span>
               </p>
-              <ul class="sm:list-disc">
+              <ul className="sm:list-disc">
                 <li>Unlimited images</li>
                 <li>Unlimited resolution</li>
                 <li>High quality refiner</li>
               </ul>
-              <div class="flex justify-center mt-6" bis_skin_checked="1">
+              <div className="flex justify-center mt-6" bis_skin_checked="1">
                 <div
                   id="cleanup-subscribe-button"
-                  class="bg-black text-white px-5 py-2 rounded-full hover:underline cursor-pointer mt-[75px]"
+                  className="bg-black text-white px-5 py-2 rounded-full hover:underline cursor-pointer mt-[75px]"
                   bis_skin_checked="1"
                 >
                   Try Free
@@ -43,16 +47,16 @@ export default function Home() {
               </div>
             </div>
             <div
-              class="flex flex-col items-center w-64 bg-gray-200 px-1 py-3 mx-3 -mt-2 rounded-xl"
+              className="flex flex-col items-center w-64 bg-gray-200 px-1 py-3 mx-3 -mt-2 rounded-xl"
               bis_skin_checked="1"
             >
-              <p class="text-center mb-12 bg-primary px-4 py-1 rounded-full">
+              <p className="text-center mb-12 bg-primary px-4 py-1 rounded-full">
                 ClipDrop Pro
               </p>
-              <p class="price font-varent">
+              <p className="price font-varent">
                 7 <span>starting from</span>
               </p>
-              <ul class="sm:list-disc">
+              <ul className="sm:list-disc">
                 <li>Cleanup pro</li>
                 <li>Image upscaler pro</li>
                 <li>Background removal pro</li>
@@ -60,13 +64,13 @@ export default function Home() {
                 <li>ClipDrop iOS pro</li>
                 <li>ClipDrop Android pro</li>
               </ul>
-              <div class="flex justify-center mt-6" bis_skin_checked="1">
+              <div className="flex justify-center mt-6" bis_skin_checked="1">
                 <a
                   href="https://clipdrop.co/pricing?openSubscriptionModal=true&amp;defaultPlan=year&amp;cancelUrl=https://cleanup.pictures/&amp;successUrl=https://cleanup.pictures/"
                   rel="noopener noreferrer"
                 >
                   <div
-                    class="bg-black text-white px-5 py-2 rounded-full hover:underline"
+                    className="bg-black text-white px-5 py-2 rounded-full hover:underline"
                     bis_skin_checked="1"
                   >
                     Try Free
@@ -74,11 +78,11 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div class="flex flex-col items-center w-56" bis_skin_checked="1">
-              <p class="text-center mb-12 bg-gray-200 px-4 py-1 rounded-full">
+            <div className="flex flex-col items-center w-56" bis_skin_checked="1">
+              <p className="text-center mb-12 bg-gray-200 px-4 py-1 rounded-full">
                 API
               </p>
-              <p class="api-price">Usage-based pricing</p>
+              <p className="api-price">Usage-based pricing</p>
               <ul>
                 <li>
                   <a href="https://clipdrop.co/apis/docs/inpainting?utm_campaign=cleanup_pictures">
@@ -90,22 +94,22 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div id="faq" class="homepage-block bg-gray-100" bis_skin_checked="1">
-        <div class="homepage-content" bis_skin_checked="1">
-          <h1 class="font-alt text-4xl sm:text-6xl">FAQ</h1>
+      <div id="faq" className="homepage-block bg-gray-100" bis_skin_checked="1">
+        <div className="homepage-content" bis_skin_checked="1">
+          <h1 className="font-alt text-4xl sm:text-6xl">FAQ</h1>
           <div
-            itemscope=""
-            itemprop="mainEntity"
-            itemtype="https://schema.org/Question"
+            itemScope=""
+            itemProp="mainEntity"
+            itemType="https://schema.org/Question"
             bis_skin_checked="1"
           >
-            <h2 itemprop="name">What is Inpainting?</h2>
+            <h2 itemProp="name">What is Inpainting?</h2>
             <p
-              itemscope=""
-              itemprop="acceptedAnswer"
-              itemtype="https://schema.org/Answer"
+              itemScope=""
+              itemProp="acceptedAnswer"
+              itemType="https://schema.org/Answer"
             >
-              <span itemprop="text">
+              <span itemProp="text">
                 Inpainting is a retouch technology used to remove any unwanted
                 objects from photos (object removal). It can be used to remove
                 an unwanted person. It used to work with a Clone tool like the
@@ -115,20 +119,20 @@ export default function Home() {
             </p>
           </div>
           <div
-            itemscope=""
-            itemprop="mainEntity"
-            itemtype="https://schema.org/Question"
+            itemScope=""
+            itemProp="mainEntity"
+            itemType="https://schema.org/Question"
             bis_skin_checked="1"
           >
-            <h2 itemprop="name">
+            <h2 itemProp="name">
               Why Cleanup.Pictures is better than other inpating app?
             </h2>
             <p
-              itemscope=""
-              itemprop="acceptedAnswer"
-              itemtype="https://schema.org/Answer"
+              itemScope=""
+              itemProp="acceptedAnswer"
+              itemType="https://schema.org/Answer"
             >
-              <span itemprop="text">
+              <span itemProp="text">
                 Cleanup.picture is an advanced editing tool based on Artificial
                 Intelligence that is much better than other clone stamp tool.
                 Clone tool like adobe photoshop fix, need a background
@@ -139,23 +143,23 @@ export default function Home() {
             </p>
           </div>
           <div
-            itemscope=""
-            itemprop="mainEntity"
-            itemtype="https://schema.org/Question"
+            itemScope=""
+            itemProp="mainEntity"
+            itemType="https://schema.org/Question"
             bis_skin_checked="1"
           >
-            <h2 itemprop="name">
+            <h2 itemProp="name">
               What image resolutions can cleanup.pictures handle?
             </h2>
             <p
-              itemscope=""
-              itemprop="acceptedAnswer"
-              itemtype="https://schema.org/Answer"
+              itemScope=""
+              itemProp="acceptedAnswer"
+              itemType="https://schema.org/Answer"
             >
-              <span itemprop="text">
+              <span itemProp="text">
                 You can import and edit picture of any size in Cleanup.pictures.
                 Export will be limited to 720px for the free version. There is{" "}
-                <span class="bg-primary px-2 py-1 rounded-full whitespace-nowrap">
+                <span className="bg-primary px-2 py-1 rounded-full whitespace-nowrap">
                   no size limit
                 </span>{" "}
                 for the Pro version. We're continuously improving the quality of
@@ -164,29 +168,29 @@ export default function Home() {
             </p>
           </div>
           <div
-            itemscope=""
-            itemprop="mainEntity"
-            itemtype="https://schema.org/Question"
+            itemScope=""
+            itemProp="mainEntity"
+            itemType="https://schema.org/Question"
             bis_skin_checked="1"
           >
-            <h2 itemprop="name">How much Cleanup.pictures cost?</h2>
+            <h2 itemProp="name">How much Cleanup.pictures cost?</h2>
             <p
-              itemscope=""
-              itemprop="acceptedAnswer"
-              itemtype="https://schema.org/Answer"
+              itemScope=""
+              itemProp="acceptedAnswer"
+              itemType="https://schema.org/Answer"
             >
-              <span itemprop="text">
+              <span itemProp="text">
                 Cleanup.Picture is{" "}
-                <span class="bg-primary px-2 py-1 rounded-full whitespace-nowrap">
+                <span className="bg-primary px-2 py-1 rounded-full whitespace-nowrap">
                   free
                 </span>{" "}
                 unless you need better quality and process hi-resolution images.
                 The price is then{" "}
-                <span class="bg-primary px-2 py-1 rounded-full whitespace-nowrap">
+                <span className="bg-primary px-2 py-1 rounded-full whitespace-nowrap">
                   $5 per month
                 </span>{" "}
                 or{" "}
-                <span class="bg-primary px-2 py-1 rounded-full whitespace-nowrap">
+                <span className="bg-primary px-2 py-1 rounded-full whitespace-nowrap">
                   $36 per year ($3 per month)
                 </span>{" "}
                 for processing images of any size. The trial allows testing the
@@ -197,18 +201,18 @@ export default function Home() {
             </p>
           </div>
           <div
-            itemscope=""
-            itemprop="mainEntity"
-            itemtype="https://schema.org/Question"
+            itemScope=""
+            itemProp="mainEntity"
+            itemType="https://schema.org/Question"
             bis_skin_checked="1"
           >
-            <h2 itemprop="name">What is your refund policy?</h2>
+            <h2 itemProp="name">What is your refund policy?</h2>
             <p
-              itemscope=""
-              itemprop="acceptedAnswer"
-              itemtype="https://schema.org/Answer"
+              itemScope=""
+              itemProp="acceptedAnswer"
+              itemType="https://schema.org/Answer"
             >
-              <span itemprop="text">
+              <span itemProp="text">
                 We provide a free trial period of our offering to let you fully
                 evaluate it before you make the decision to purchase the full
                 version. Please use the trial period to ensure our product meets
@@ -237,23 +241,23 @@ export default function Home() {
             </p>
           </div>
           <div
-            itemscope=""
-            itemprop="mainEntity"
-            itemtype="https://schema.org/Question"
+            itemScope=""
+            itemProp="mainEntity"
+            itemType="https://schema.org/Question"
             bis_skin_checked="1"
           >
-            <h2 itemprop="name">
+            <h2 itemProp="name">
               How to use Cleanup pictures on iOS or Android?
             </h2>
             <p
-              itemscope=""
-              itemprop="acceptedAnswer"
-              itemtype="https://schema.org/Answer"
+              itemScope=""
+              itemProp="acceptedAnswer"
+              itemType="https://schema.org/Answer"
             >
-              <span itemprop="text">
+              <span itemProp="text">
                 You can download the{" "}
                 <a href="https://clipdrop.co?utm_campaign=cleanup_pictures">
-                  <span class="bg-primary px-2 py-1 rounded-full whitespace-nowrap">
+                  <span className="bg-primary px-2 py-1 rounded-full whitespace-nowrap">
                     <u>ClipDrop iOS App</u>
                   </span>
                 </a>{" "}
@@ -268,62 +272,62 @@ export default function Home() {
             </p>
           </div>
           <div
-            itemscope=""
-            itemprop="mainEntity"
-            itemtype="https://schema.org/Question"
+            itemScope=""
+            itemProp="mainEntity"
+            itemType="https://schema.org/Question"
             bis_skin_checked="1"
           >
-            <h2 itemprop="name">
+            <h2 itemProp="name">
               How to use Edit, Pause or Cancel my subscription?
             </h2>
             <p
-              itemscope=""
-              itemprop="acceptedAnswer"
-              itemtype="https://schema.org/Answer"
+              itemScope=""
+              itemProp="acceptedAnswer"
+              itemType="https://schema.org/Answer"
             >
-              <span itemprop="text">
+              <span itemProp="text">
                 You can manage your subscription by visiting the "manage
                 subscription" section:{" "}
               </span>
               <img
-                class="w-60 inline-block p-2"
+                className="w-60 inline-block p-2"
                 src="help/manage-subscription.jpg"
                 alt="manage subscription"
               />
             </p>
           </div>
           <div
-            itemscope=""
-            itemprop="mainEntity"
-            itemtype="https://schema.org/Question"
+            itemScope=""
+            itemProp="mainEntity"
+            itemType="https://schema.org/Question"
             bis_skin_checked="1"
           >
-            <h2 itemprop="name">
+            <h2 itemProp="name">
               How many users can use a Cleanup subscription?
             </h2>
             <p
-              itemscope=""
-              itemprop="acceptedAnswer"
-              itemtype="https://schema.org/Answer"
+              itemScope=""
+              itemProp="acceptedAnswer"
+              itemType="https://schema.org/Answer"
             >
-              <span itemprop="text">
+              <span itemProp="text">
                 Each cleanup subscription is individual and limited to 1 user.
               </span>
             </p>
           </div>
           <div
-            itemscope=""
-            itemprop="mainEntity"
-            itemtype="https://schema.org/Question"
+            itemScope=""
+            itemProp="mainEntity"
+            itemType="https://schema.org/Question"
             bis_skin_checked="1"
           >
-            <h2 itemprop="name">How can I use the inpainting API?</h2>
+            <h2 itemProp="name">How can I use the inpainting API?</h2>
             <p
-              itemscope=""
-              itemprop="acceptedAnswer"
-              itemtype="https://schema.org/Answer"
+              itemScope=""
+              itemProp="acceptedAnswer"
+              itemType="https://schema.org/Answer"
             >
-              <span itemprop="text">
+              <span itemProp="text">
                 <a
                   href="https://clipdrop.co/apis/docs/inpainting?utm_campaign=cleanup_pictures"
                   target="_blank"
@@ -340,18 +344,18 @@ export default function Home() {
             </p>
           </div>
           <div
-            itemscope=""
-            itemprop="mainEntity"
-            itemtype="https://schema.org/Question"
+            itemScope=""
+            itemProp="mainEntity"
+            itemType="https://schema.org/Question"
             bis_skin_checked="1"
           >
-            <h2 itemprop="name">How to remove people from a photo?</h2>
+            <h2 itemProp="name">How to remove people from a photo?</h2>
             <p
-              itemscope=""
-              itemprop="acceptedAnswer"
-              itemtype="https://schema.org/Answer"
+              itemScope=""
+              itemProp="acceptedAnswer"
+              itemType="https://schema.org/Answer"
             >
-              <span itemprop="text">
+              <span itemProp="text">
                 <a href="https://cleanup.pictures">cleanup.pictures</a> lets you
                 remove people from a photo in a few seconds for free. You don't
                 need complex softwares such as Adobe Photoshop. With{" "}
@@ -366,20 +370,20 @@ export default function Home() {
             </p>
           </div>
           <div
-            itemscope=""
-            itemprop="mainEntity"
-            itemtype="https://schema.org/Question"
+            itemScope=""
+            itemProp="mainEntity"
+            itemType="https://schema.org/Question"
             bis_skin_checked="1"
           >
-            <h2 itemprop="name">
+            <h2 itemProp="name">
               How to remove unwanted objects from a photo?
             </h2>
             <p
-              itemscope=""
-              itemprop="acceptedAnswer"
-              itemtype="https://schema.org/Answer"
+              itemScope=""
+              itemProp="acceptedAnswer"
+              itemType="https://schema.org/Answer"
             >
-              <span itemprop="text">
+              <span itemProp="text">
                 Use <a href="https://cleanup.pictures">cleanup.pictures</a> to
                 remove unwanted objects, people, or defects. The A.I. algorithm
                 will reconstruct what was behind the object in just one click.
@@ -389,20 +393,20 @@ export default function Home() {
             </p>
           </div>
           <div
-            itemscope=""
-            itemprop="mainEntity"
-            itemtype="https://schema.org/Question"
+            itemScope=""
+            itemProp="mainEntity"
+            itemType="https://schema.org/Question"
             bis_skin_checked="1"
           >
-            <h2 itemprop="name">
+            <h2 itemProp="name">
               How to remove text, a logo or watermarks from an image?
             </h2>
             <p
-              itemscope=""
-              itemprop="acceptedAnswer"
-              itemtype="https://schema.org/Answer"
+              itemScope=""
+              itemProp="acceptedAnswer"
+              itemType="https://schema.org/Answer"
             >
-              <span itemprop="text">
+              <span itemProp="text">
                 You can remove unwanted text from a picture in a few seconds
                 with impressive accuracy using{" "}
                 <a href="https://cleanup.pictures">cleanup.pictures</a>. As for
@@ -422,18 +426,18 @@ export default function Home() {
             </p>
           </div>
           <div
-            itemscope=""
-            itemprop="mainEntity"
-            itemtype="https://schema.org/Question"
+            itemScope=""
+            itemProp="mainEntity"
+            itemType="https://schema.org/Question"
             bis_skin_checked="1"
           >
-            <h2 itemprop="name">How to remove blemish or wrinkles?</h2>
+            <h2 itemProp="name">How to remove blemish or wrinkles?</h2>
             <p
-              itemscope=""
-              itemprop="acceptedAnswer"
-              itemtype="https://schema.org/Answer"
+              itemScope=""
+              itemProp="acceptedAnswer"
+              itemType="https://schema.org/Answer"
             >
-              <span itemprop="text">
+              <span itemProp="text">
                 You can remove blemishes or wrinkles from your profile picture
                 using the CleanUp brush. Like for another photo retouch, just be
                 sure you overflow the brush over it, and download the result.
@@ -441,18 +445,18 @@ export default function Home() {
             </p>
           </div>
           <div
-            itemscope=""
-            itemprop="mainEntity"
-            itemtype="https://schema.org/Question"
+            itemScope=""
+            itemProp="mainEntity"
+            itemType="https://schema.org/Question"
             bis_skin_checked="1"
           >
-            <h2 itemprop="name">How to remove the background of an image?</h2>
+            <h2 itemProp="name">How to remove the background of an image?</h2>
             <p
-              itemscope=""
-              itemprop="acceptedAnswer"
-              itemtype="https://schema.org/Answer"
+              itemScope=""
+              itemProp="acceptedAnswer"
+              itemType="https://schema.org/Answer"
             >
-              <span itemprop="text">
+              <span itemProp="text">
                 The best way to remove the background of a photo online or using
                 your phone is using{" "}
                 <a

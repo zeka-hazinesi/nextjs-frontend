@@ -1,16 +1,28 @@
 import React from 'react';
 
-const DropdownMenu = ({openModal}) => {
+const DropdownMenu = ({openModal, user}) => {
   return (
     <div className="absolute top-14 right-0 mt-2 w-40 bg-white border border-gray-300 shadow-lg rounded-lg">
       <ul>
         <li>
+          {user ? (
+            <>
+            <button 
+            className="px-4 py-2 w-full text-left hover:bg-gray-100"
+            onClick={openModal}>
+            Eingeloggt als, {user.data.user.email}
+            </button>
+            </>
+          ) : (
+            <>
           <button
             onClick={openModal}
             className="px-4 py-2 w-full text-left hover:bg-gray-100"
           >
             Sign In
           </button>
+          </>
+          )}
         </li>
         <li>
           <button
