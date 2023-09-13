@@ -4,9 +4,22 @@ import ImageEditor from "@/components/draganddrop";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div id="image-editor" className="z-1">
-        <ImageEditor />
+      <div
+        id="image-editor"
+        className="z-1 flex flex-row justify-center items-center"
+      >
+        <div>
+          <ImageEditor />
         </div>
+        <div>
+          <button className="bg-black text-white px-5 py-2 rounded-full ml-4 mr-4">
+            Generate
+          </button>
+        </div>
+        <div>
+          <ImageEditor />
+        </div>
+      </div>
       <div id="pricing" className="homepage-block" bis_skin_checked="1">
         <div className="space-y-12 w-full sm:w-auto" bis_skin_checked="1">
           <h1 className="font-alt text-4xl sm:text-6xl">Pricing</h1>
@@ -14,7 +27,10 @@ export default function Home() {
             className="flex text-left justify-evenly pricing"
             bis_skin_checked="1"
           >
-            <div className="flex flex-col items-center w-56" bis_skin_checked="1">
+            <div
+              className="flex flex-col items-center w-56"
+              bis_skin_checked="1"
+            >
               <p className="text-center mb-12 bg-gray-200 px-4 py-1 rounded-full">
                 Free
               </p>
@@ -24,7 +40,10 @@ export default function Home() {
                 <li>Resolution limited to 720p</li>
               </ul>
             </div>
-            <div className="flex flex-col items-center w-56" bis_skin_checked="1">
+            <div
+              className="flex flex-col items-center w-56"
+              bis_skin_checked="1"
+            >
               <p className="text-center mb-12 bg-primary px-4 py-1 rounded-full">
                 Pro
               </p>
@@ -78,7 +97,10 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="flex flex-col items-center w-56" bis_skin_checked="1">
+            <div
+              className="flex flex-col items-center w-56"
+              bis_skin_checked="1"
+            >
               <p className="text-center mb-12 bg-gray-200 px-4 py-1 rounded-full">
                 API
               </p>

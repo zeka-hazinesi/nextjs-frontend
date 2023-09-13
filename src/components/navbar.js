@@ -12,7 +12,7 @@ const NavigationBar = () => {
 
   useEffect(() => {
     checkUser();
-    window.addEventListener('hashchange', function() {
+    window.addEventListener("hashchange", function () {
       checkUser();
     });
   }, []);
@@ -27,31 +27,28 @@ const NavigationBar = () => {
       }
     };
 
-  
-
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     // Entferne den Event-Listener, wenn die Komponente unmontiert wird
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   useEffect(() => {
     const imageEditor = document.getElementById("image-editor");
 
-    if(isModalOpen && imageEditor != null){
-      imageEditor.style.pointerEvents = 'none';
+    if (isModalOpen && imageEditor != null) {
+      imageEditor.style.pointerEvents = "none";
       imageEditor.style.zIndex = -999;
     } else {
-      imageEditor.style.pointerEvents = 'auto';
+      imageEditor.style.pointerEvents = "auto";
       imageEditor.style.zIndex = 1;
     }
-  })
+  });
 
   async function checkUser() {
     const user = await supabase.auth.getUser();
-    console.log(user);
     setUser(user);
   }
 
@@ -83,11 +80,12 @@ const NavigationBar = () => {
     setModalOpen(false);
   };
 
-
   return (
-    <nav className={`${
-      isScrolled ? 'bg-blue-500' : 'bg-transparent'
-    } p-4 flex justify-between items-center fixed top-0 w-full transition-all duration-300`}>
+    <nav
+      className={`${
+        isScrolled ? "bg-blue-500" : "bg-transparent"
+      } p-4 flex justify-between items-center fixed top-0 w-full transition-all duration-300`}
+    >
       <div className="text-white text-xl font-semibold">
         <button
           onClick={scrollToTop}
