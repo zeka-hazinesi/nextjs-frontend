@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import DropdownMenu from "./dropdown";
 import Modal from "./githubmodal";
-import Image from "next/image";
 import { supabase } from "@/lib/supabase";
 
 const NavigationBar = () => {
@@ -86,7 +85,7 @@ const NavigationBar = () => {
       } z-10 p-4 flex justify-between items-center fixed top-0 w-full transition-all duration-300`}
     >
       <div className="flex flex-row text-white text-xl font-semibold">
-        <Image
+        <img
           src="/ideogram.jpeg"
           width={100}
           height={100}
