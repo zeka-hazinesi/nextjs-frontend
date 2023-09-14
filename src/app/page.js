@@ -1,6 +1,7 @@
 'use client';
 import ImageEditor from "@/components/draganddrop";
 import OutputArea from "@/components/output";
+import DropdownButton from "@/components/styledrop";
 import UploadButton from "@/components/uploadButton";
 import { useState } from "react";
 
@@ -21,7 +22,8 @@ export default function Home() {
         <div>
           <ImageEditor />
         </div>
-        <div>
+        <div className="flex flex-col items-center justify-center">
+          <DropdownButton />
           <UploadButton handleUpload={handleUploadComplete} />
         </div>
         <div>
