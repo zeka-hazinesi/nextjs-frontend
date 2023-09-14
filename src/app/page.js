@@ -27,7 +27,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div
         id="image-editor"
-        className="z-1 flex flex-row justify-center items-center"
+        className="flex flex-row justify-center items-center"
       >
         <div>
           <ImageEditor setFile={handleFileChange} />

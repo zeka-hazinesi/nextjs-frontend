@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import DropdownMenu from "./dropdown";
 import Modal from "./githubmodal";
+import Image from "next/image";
 import { supabase } from "@/lib/supabase";
 
 const NavigationBar = () => {
@@ -40,10 +41,8 @@ const NavigationBar = () => {
 
     if (isModalOpen && imageEditor != null) {
       imageEditor.style.pointerEvents = "none";
-      imageEditor.style.zIndex = -999;
     } else {
       imageEditor.style.pointerEvents = "auto";
-      imageEditor.style.zIndex = 1;
     }
   });
 
@@ -84,25 +83,27 @@ const NavigationBar = () => {
     <nav
       className={`${
         isScrolled ? "bg-blue-500" : "bg-transparent"
-      } p-4 flex justify-between items-center fixed top-0 w-full transition-all duration-300`}
+      } z-10 p-4 flex justify-between items-center fixed top-0 w-full transition-all duration-300`}
     >
-      <div className="text-white text-xl font-semibold">
+      <div className="flex flex-row text-white text-xl font-semibold">
+        <Image
+          src="/ideogram.jpeg"
+          width={100}
+          height={100}
+          style={{
+            borderRadius: "15px",
+            marginRight: "15px",
+          }}
+        />
         <button
           onClick={scrollToTop}
           className="cursor-pointer focus:outline-none"
+          style={{ fontSize: "36px" }}
         >
-          NextJS
+          ArchiDraw
         </button>
       </div>
       <ul className="flex space-x-6 mr-6">
-        <li>
-          <button
-            onClick={() => scrollToSection("use-cases-section")}
-            className="text-white cursor-pointer"
-          >
-            Use Cases
-          </button>
-        </li>
         <li>
           <button
             onClick={() => scrollToSection("pricing")}
