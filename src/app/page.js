@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import ImageEditor from "@/components/draganddrop";
 import OutputArea from "@/components/output";
 import DropdownButton from "@/components/styledrop";
@@ -8,6 +8,7 @@ import { useState } from "react";
 export default function Home() {
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
+  const [file, setFile] = useState(null);
 
   const handleOptionChange = (event) => {
     console.log(event.target.value);
@@ -18,6 +19,9 @@ export default function Home() {
     setUploadedImageUrl(imageUrl);
   };
 
+  const handleFileChange = (file) => {
+    setFile(file);
+  };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -26,11 +30,18 @@ export default function Home() {
         className="z-1 flex flex-row justify-center items-center"
       >
         <div>
-          <ImageEditor />
+          <ImageEditor setFile={handleFileChange} />
         </div>
         <div className="flex flex-col items-center justify-center">
-          <DropdownButton handleOption={handleOptionChange} selectedOption={selectedOption} />
-          <UploadButton handleUpload={handleUploadComplete} option={selectedOption} />
+          <DropdownButton
+            handleOption={handleOptionChange}
+            selectedOption={selectedOption}
+          />
+          <UploadButton
+            handleUpload={handleUploadComplete}
+            option={selectedOption}
+            file={file}
+          />
         </div>
         <div>
           <OutputArea imageUrl={uploadedImageUrl} />
