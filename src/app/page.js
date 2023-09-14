@@ -1,6 +1,17 @@
+'use client';
 import ImageEditor from "@/components/draganddrop";
+import OutputArea from "@/components/output";
+import UploadButton from "@/components/uploadButton";
+import { useState } from "react";
 
 export default function Home() {
+  const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
+
+  const handleUploadComplete = (imageUrl) => {
+    setUploadedImageUrl(imageUrl);
+  };
+
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div
@@ -11,12 +22,10 @@ export default function Home() {
           <ImageEditor />
         </div>
         <div>
-          <button className="bg-black text-white px-5 py-2 rounded-full ml-4 mr-4">
-            Generate
-          </button>
+          <UploadButton handleUpload={handleUploadComplete} />
         </div>
         <div>
-          <ImageEditor />
+          <OutputArea imageUrl={uploadedImageUrl} />
         </div>
       </div>
       <div id="pricing" className="homepage-block" bis_skin_checked="1">

@@ -2,7 +2,7 @@
 import React, { useState, useRef } from 'react';
 import DrawingCanvas from './drawingcanvas';
 
-const ImageEditor = () => {
+const ImageEditor = (image) => {
   const [droppedImage, setDroppedImage] = useState(null);
   const [isDrawingMode, setIsDrawingMode] = useState(false);
   const fileInputRef = useRef(null);
@@ -21,6 +21,7 @@ const ImageEditor = () => {
     handleImageUpload(file);
   };
 
+  
   const handleImageUpload = (file) => {
     if (file) {
       // Überprüfe, ob die Datei ein Bild ist (z.B. anhand des Dateityps)
@@ -28,10 +29,8 @@ const ImageEditor = () => {
         const reader = new FileReader();
 
         reader.onload = (e) => {
-          const image = new Image();
-          image.src = e.target.result;
 
-          setDroppedImage(image);
+          setDroppedImage(e.target.result);
           setIsDrawingMode(false); // Wechsle zum Drop-Bereich nach dem Bild-Upload
         };
 
@@ -42,9 +41,12 @@ const ImageEditor = () => {
     }
   };
 
+ 
+
   const toggleMode = () => {
     setIsDrawingMode(!isDrawingMode);
   };
+
 
   return (
     <div>
@@ -73,10 +75,24 @@ const ImageEditor = () => {
             zIndex: 1
           }}
         >
+        {droppedImage ? (
+          <img
+          src={droppedImage}
+          alt="Hochgeladenes Bild"
+          style={{
+            height: '100%',
+            width: '100%',
+            
+          objectFit: 'cover' }}
+        />
+        ) : (
           <p style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
             Drag & Drop Bereich für Bilder
           </p>
+        )}
+          
           <input
+            id="upload-image"
             type="file"
             accept="image/*"
             onChange={handleImageInputChange}
