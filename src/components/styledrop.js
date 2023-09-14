@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
 
-const DropdownButton = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
-
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
-
+const DropdownButton = ({handleOption, selectedOption}) => {
   return (
     <div className="flex flex-col items-center justify-center mb-4">
       <select 
       className="bg-black text-white px-5 py-2 rounded-full ml-4 mr-4 mb-4"
-      value={selectedOption} onChange={handleOptionChange}>
+      value={selectedOption} onChange={handleOption}>
         							<option value="modern">
 					Modern 				</option>
 							<option value="minimalist">

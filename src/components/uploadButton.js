@@ -3,11 +3,9 @@
 import React from 'react';
 import { supabase } from '@/lib/supabase';
 
-const UploadButton = ({handleUpload}) => {
-
+const UploadButton = ({handleUpload, option}) => {
   const handleGenerateClick = async () => {
     const image = document.getElementById("upload-image");
-
     if (image && image.files.length > 0) {
         
         const imageFile = image.files[0];

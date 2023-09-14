@@ -7,6 +7,12 @@ import { useState } from "react";
 
 export default function Home() {
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleOptionChange = (event) => {
+    console.log(event.target.value);
+    setSelectedOption(event.target.value);
+  };
 
   const handleUploadComplete = (imageUrl) => {
     setUploadedImageUrl(imageUrl);
@@ -23,8 +29,8 @@ export default function Home() {
           <ImageEditor />
         </div>
         <div className="flex flex-col items-center justify-center">
-          <DropdownButton />
-          <UploadButton handleUpload={handleUploadComplete} />
+          <DropdownButton handleOption={handleOptionChange} selectedOption={selectedOption} />
+          <UploadButton handleUpload={handleUploadComplete} option={selectedOption} />
         </div>
         <div>
           <OutputArea imageUrl={uploadedImageUrl} />
