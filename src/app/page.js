@@ -25,6 +25,7 @@ export default function Home() {
   };
 
   return (
+    <>
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div
         id="image-editor"
@@ -523,5 +524,27 @@ export default function Home() {
         </div>
       </div>
     </main>
+    <footer class="flex flex-col space-y-8 items-center bg-black text-white text-center p-4 pt-12">
+      <a href="https://clipdrop.co?utm_campaign=cleanup_pictures" target="_blank" rel="noreferrer dofollow">
+      <img src="logo-footer.svg" class="h-24" alt="Cleanup.pictures" /></a>
+    <div class="pt-8"><p>
+      <a href="https://cleanup.pictures">CleanUp.pictures</a>&nbsp;is a web application that lets you cleanup photos with a quick &amp; simple interface.</p>
+    <p class="space-x-12">
+      <span>©2022 Init ML</span> 
+    <a class="underline" href="https://clipdrop.co/terms">Terms &amp; Services</a> 
+    <a class="underline" href="https://clipdrop.co/privacy">Privacy Policy</a>
+    </p>
+    </div>
+    <div class="flex justify-center items-center w-full space-x-8">
+      <a href="https://www.producthunt.com/posts/cleanup-pictures?utm_source=badge-top-post-badge&amp;utm_medium=badge&amp;utm_souce=badge-cleanup-pictures" target="_blank" rel="noreferrer">
+      <img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=316605&amp;theme=dark&amp;period=weekly" alt="CleanUp.Pictures - Remove objects and defects from your pictures - 100% free | Product Hunt" style={{width: 250, height:54}} />
+
+    </a>
+    <a href="https://fixthephoto.com/free-apps-to-remove-unwanted-objects-from-photo.html" target="_blank" rel="noreferrer">
+      <img src="fix.svg" width="80" height="80" alt="Fix" />
+    </a>
+    </div>
+    </footer>
+    </>
   );
 }
