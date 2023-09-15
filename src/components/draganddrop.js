@@ -13,22 +13,20 @@ const ImageEditor = ({ setFile }) => {
 
   useEffect(() => {
     checkUser();
-    console.log(user);
-  },[]);
+  }, []);
 
   const checkUser = async () => {
     const l_user = await supabase.auth.getUser(); // eingeloggten User erfassen, oder Null
     setUser(l_user);
-  }
+  };
 
   const handleDragOver = (e) => {
     e.preventDefault();
-    
   };
 
   const handleDrop = (e) => {
     e.preventDefault();
-    if(!user.data.user){
+    if (!user.data.user) {
       setIsModalVisible(true);
       return;
     }
@@ -38,17 +36,17 @@ const ImageEditor = ({ setFile }) => {
 
   const closeModal = () => {
     setIsModalVisible(false);
-  }
+  };
 
   const handleIfUserLoggedIn = () => {
-    if(user){
-    if(!user.data.user){
-      setIsModalVisible(true);
-    } else {
-      fileInputRef.current.click();
+    if (user) {
+      if (!user.data.user) {
+        setIsModalVisible(true);
+      } else {
+        fileInputRef.current.click();
+      }
     }
-    }
-  }
+  };
 
   const handleImageInputChange = (e) => {
     const file = e.target.files[0];
@@ -77,8 +75,6 @@ const ImageEditor = ({ setFile }) => {
   const toggleMode = () => {
     setIsDrawingMode(!isDrawingMode);
   };
-
-  console.log(isModalVisible);
 
   return (
     <div>
@@ -116,7 +112,6 @@ const ImageEditor = ({ setFile }) => {
               style={{
                 height: "100%",
                 width: "100%",
-
                 objectFit: "cover",
               }}
             />
@@ -161,8 +156,7 @@ const ImageEditor = ({ setFile }) => {
           ></button>
         </div>
       )}
-      {isModalVisible && (
-        <Modal isOpen={isModalVisible} onClose={closeModal} /> )}
+      {isModalVisible && <Modal isOpen={isModalVisible} onClose={closeModal} />}
     </div>
   );
 };
