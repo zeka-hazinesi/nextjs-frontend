@@ -86,7 +86,7 @@ const NavigationBar = () => {
     >
       <div className="flex flex-row text-white text-xl font-semibold">
         <img
-          src="/ideogram.jpeg"
+          src="./ideogram.jpeg"
           width={100}
           height={100}
           style={{
