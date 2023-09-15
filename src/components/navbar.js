@@ -2,11 +2,13 @@
 import React, { useEffect, useState } from "react";
 import DropdownMenu from "./dropdown";
 import Modal from "./githubmodal";
+import UpgradeModal from "./upgrademodal";
 import { supabase } from "@/lib/supabase";
 
 const NavigationBar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isUpgradeModalOpen, setUpgradeModalOpen] = useState(false);
   const [user, setUser] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -78,6 +80,15 @@ const NavigationBar = () => {
     setModalOpen(false);
   };
 
+  const openUpgradeModal = () => {
+    closeDropdown();
+    setUpgradeModalOpen(true);
+  }
+  
+  const closeUpgradeModal = () => {
+    setUpgradeModalOpen(false);
+  }
+
   return (
     <nav
       className={`${
@@ -126,10 +137,11 @@ const NavigationBar = () => {
           >
             ⚙
           </button>
-          {isDropdownOpen && <DropdownMenu openModal={openModal} user={user} />}
+          {isDropdownOpen && <DropdownMenu openModal={openModal} openUpgradeModal={openUpgradeModal} user={user} />}
         </li>
       </ul>
       <Modal isOpen={isModalOpen} onClose={closeModal} />
+      <UpgradeModal isOpen={isUpgradeModalOpen} onClose={closeUpgradeModal} />
     </nav>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 
-const DropdownMenu = ({ openModal, user }) => {
+const DropdownMenu = ({ openModal, openUpgradeModal, user }) => {
   return (
     <div className="absolute top-14 right-0 mt-2 w-40 bg-white border border-gray-300 shadow-lg rounded-lg">
       <ul>
@@ -27,9 +27,7 @@ const DropdownMenu = ({ openModal, user }) => {
         </li>
         <li>
           <button
-            onClick={() => {
-              /* Füge hier die Logik für "Upgrade" hinzu */
-            }}
+            onClick={openUpgradeModal}
             className="px-4 py-2 w-full text-left hover:bg-gray-100"
           >
             Upgrade
