@@ -5,7 +5,7 @@ const DropdownButton = ({handleOption, selectedOption}) => {
     <div className="flex flex-col items-center justify-center mb-4">
       <select 
       className="bg-black text-white px-5 py-2 rounded-full ml-4 mr-4 mb-4"
-      value={selectedOption} onChange={handleOption}>
+      defaultValue={selectedOption} onChange={handleOption}>
         							<option value="modern">
 					Modern 				</option>
 							<option value="minimalist">
@@ -20,7 +20,7 @@ const DropdownButton = ({handleOption, selectedOption}) => {
 					Midcentury modern 				</option>
 							<option value="zen">
 					Zen 				</option>
-							<option value="tropical" selected="">
+							<option value="tropical">
 					Tropical 				</option>
 							<option value="industrial">
 					Industrial 				</option>

@@ -1,23 +1,57 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import DrawingCanvas from "./drawingcanvas";
+import { supabase } from "@/lib/supabase";
+import Modal from "./githubmodal";
 
 const ImageEditor = ({ setFile }) => {
+  const [user, setUser] = useState(null);
   const [droppedImage, setDroppedImage] = useState(null);
   const [isDrawingMode, setIsDrawingMode] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const fileInputRef = useRef(null);
+
+  useEffect(() => {
+    checkUser();
+    console.log(user);
+  },[]);
+
+  const checkUser = async () => {
+    const l_user = await supabase.auth.getUser(); // eingeloggten User erfassen, oder Null
+    setUser(l_user);
+  }
 
   const handleDragOver = (e) => {
     e.preventDefault();
+    
   };
 
   const handleDrop = (e) => {
     e.preventDefault();
+    if(!user.data.user){
+      setIsModalVisible(true);
+      return;
+    }
     setFile(e.dataTransfer.files[0]);
     handleImageUpload(e.dataTransfer.files[0]);
   };
 
+  const closeModal = () => {
+    setIsModalVisible(false);
+  }
+
+  const handleIfUserLoggedIn = () => {
+    if(!user.data.user){
+      setIsModalVisible(true);
+    } else {
+      fileInputRef.current.click();
+    }
+  }
+
   const handleImageInputChange = (e) => {
+    if(!user){
+      return;
+    }
     const file = e.target.files[0];
     setFile(file);
     handleImageUpload(file);
@@ -44,6 +78,8 @@ const ImageEditor = ({ setFile }) => {
   const toggleMode = () => {
     setIsDrawingMode(!isDrawingMode);
   };
+
+  console.log(isModalVisible);
 
   return (
     <div>
@@ -113,7 +149,7 @@ const ImageEditor = ({ setFile }) => {
             ref={fileInputRef}
           />
           <button
-            onClick={() => fileInputRef.current.click()}
+            onClick={handleIfUserLoggedIn}
             style={{
               position: "absolute",
               width: "100%",
@@ -126,6 +162,8 @@ const ImageEditor = ({ setFile }) => {
           ></button>
         </div>
       )}
+      {isModalVisible && (
+        <Modal isOpen={isModalVisible} onClose={closeModal} /> )}
     </div>
   );
 };

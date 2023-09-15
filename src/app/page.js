@@ -5,9 +5,10 @@ import DropdownButton from "@/components/styledrop";
 import UploadButton from "@/components/uploadButton";
 import { useState } from "react";
 
+
 export default function Home() {
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("");
   const [file, setFile] = useState(null);
 
   const handleOptionChange = (event) => {
