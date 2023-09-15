@@ -41,17 +41,16 @@ const ImageEditor = ({ setFile }) => {
   }
 
   const handleIfUserLoggedIn = () => {
+    if(user){
     if(!user.data.user){
       setIsModalVisible(true);
     } else {
       fileInputRef.current.click();
     }
+    }
   }
 
   const handleImageInputChange = (e) => {
-    if(!user){
-      return;
-    }
     const file = e.target.files[0];
     setFile(file);
     handleImageUpload(file);
