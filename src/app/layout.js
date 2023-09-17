@@ -1,7 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import NavigationBar from "@/components/navbar";
-import { StripeProvider } from "@/components/stripeContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,10 +13,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <StripeProvider>
-          <NavigationBar />
-          {children}
-        </StripeProvider>
+        <NavigationBar />
+        {children}
       </body>
     </html>
   );
