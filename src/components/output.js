@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React from "react";
 
 const OutputArea = (imageUrl) => {
   return (
@@ -22,13 +22,10 @@ const OutputArea = (imageUrl) => {
             <img
               src={imageUrl.imageUrl}
               style={{
-                height: "100%",
-                width: "100%",
-
-                objectFit: "cover",
+                // Das Bild wird proportional zur Höhe des div skaliert
+                objectFit: "contain",
               }}
             />
-            <p>Output-Bereich</p>
           </>
         )}
       </div>

@@ -19,15 +19,14 @@ const GenerateButton = ({ handleUpload, option, file }) => {
       var requestOptions = {
         method: "POST",
         body: formData,
-        redirect: "follow",
       };
 
-      await fetch(
+      fetch(
         "https://interior-api.azurewebsites.net/api/HttpTrigger",
         requestOptions
       )
-        .then((response) => console.log(response.json()))
-        .then((result) => console.log(result))
+        .then((response) => response.json())
+        .then((result) => handleUpload(result["link"]))
         .catch((error) => console.log("error", error));
     }
   };
