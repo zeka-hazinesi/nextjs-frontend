@@ -18,16 +18,18 @@ const OutputArea = (imageUrl) => {
         }}
       >
         {imageUrl && (
-          <img
-            src={imageUrl.imageUrl}
-            alt="outputImage"
-            style={{
-              height: "100%",
-              width: "100%",
+          <>
+            <img
+              src={imageUrl.imageUrl}
+              style={{
+                height: "100%",
+                width: "100%",
 
-              objectFit: "cover",
-            }}
-          />
+                objectFit: "cover",
+              }}
+            />
+            <p>Output-Bereich</p>
+          </>
         )}
       </div>
     </div>

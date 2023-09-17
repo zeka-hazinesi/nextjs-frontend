@@ -2,7 +2,7 @@
 import ImageEditor from "@/components/draganddrop";
 import OutputArea from "@/components/output";
 import DropdownButton from "@/components/styledrop";
-import UploadButton from "@/components/uploadButton";
+import GenerateButton from "@/components/generateButton";
 import { useState } from "react";
 
 export default function Home() {
@@ -38,7 +38,7 @@ export default function Home() {
               handleOption={handleOptionChange}
               selectedOption={selectedOption}
             />
-            <UploadButton
+            <GenerateButton
               handleUpload={handleUploadComplete}
               option={selectedOption}
               file={file}
