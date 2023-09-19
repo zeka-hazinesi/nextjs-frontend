@@ -14,7 +14,7 @@ const GenerateButton = ({ handleUpload, option, file }) => {
 
       const formData = new FormData();
       formData.append("file", imageFile);
-      // formData.append("option", option);
+      formData.append("option", option);
 
       var requestOptions = {
         method: "POST",
