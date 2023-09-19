@@ -1,10 +1,6 @@
 import React from "react";
-import { useStripe } from "./stripeContext";
 
 const DropdownMenu = ({ openModal, openUpgradeModal, user }) => {
-  const stripe = useStripe();
-
-  console.log(stripe);
 
   return (
     <div className="absolute top-14 right-0 mt-2 w-40 bg-white border border-gray-300 shadow-lg rounded-lg">

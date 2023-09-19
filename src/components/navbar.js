@@ -40,11 +40,13 @@ const NavigationBar = () => {
   useEffect(() => {
     const imageEditor = document.getElementById("image-editor");
 
-    if (isModalOpen && imageEditor != null) {
+    if(imageEditor != null){
+    if (isModalOpen) {
       imageEditor.style.pointerEvents = "none";
     } else {
       imageEditor.style.pointerEvents = "auto";
     }
+  }
   });
 
   async function checkUser() {

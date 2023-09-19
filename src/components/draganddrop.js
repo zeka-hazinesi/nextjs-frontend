@@ -1,24 +1,14 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import DrawingCanvas from "./drawingcanvas";
 import { supabase } from "@/lib/supabase";
 import Modal from "./githubmodal";
 
-const ImageEditor = ({ setFile }) => {
-  const [user, setUser] = useState(null);
+const ImageEditor = ({ setFile, user }) => {
   const [droppedImage, setDroppedImage] = useState(null);
   const [isDrawingMode, setIsDrawingMode] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const fileInputRef = useRef(null);
-
-  useEffect(() => {
-    checkUser();
-  }, []);
-
-  const checkUser = async () => {
-    const l_user = await supabase.auth.getUser(); // eingeloggten User erfassen, oder Null
-    setUser(l_user);
-  };
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -26,10 +16,10 @@ const ImageEditor = ({ setFile }) => {
 
   const handleDrop = (e) => {
     e.preventDefault();
-    if (!user.data.user) {
-      setIsModalVisible(true);
-      return;
-    }
+    // if (!user.data.user) {
+    //   setIsModalVisible(true);
+    //   return;
+    // }
     setFile(e.dataTransfer.files[0]);
     handleImageUpload(e.dataTransfer.files[0]);
   };
@@ -39,13 +29,16 @@ const ImageEditor = ({ setFile }) => {
   };
 
   const handleIfUserLoggedIn = () => {
-    if (user) {
-      if (!user.data.user) {
-        setIsModalVisible(true);
-      } else {
-        fileInputRef.current.click();
-      }
-    }
+    // if (user) {
+    //   if (!user.data.user) {
+    //     setIsModalVisible(true);
+    //   } else {
+    //     fileInputRef.current.click();
+
+    //   }
+    // }
+    fileInputRef.current.click();
+
   };
 
   const handleImageInputChange = (e) => {
@@ -78,13 +71,13 @@ const ImageEditor = ({ setFile }) => {
 
   return (
     <div>
-      <div>
+        <div>
         <button onClick={toggleMode}>
           {isDrawingMode
             ? "Zum Drop-Bereich wechseln"
             : "Zum Zeichenbereich wechseln"}
         </button>
-      </div>
+        </div>
       {isDrawingMode ? (
         <div>
           <h2>Zeichenbereich:</h2>

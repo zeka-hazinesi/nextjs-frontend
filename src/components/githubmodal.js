@@ -1,6 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
+import Cookies from 'cookies';
+import Link from 'next/link';
+
 
 const Modal = ({ isOpen, onClose }) => {
   const [user, setUser] = useState(null);
@@ -19,12 +22,17 @@ const Modal = ({ isOpen, onClose }) => {
       provider: "github",
       redirectTo: window.location.origin + "/nextjs-frontend",
     });
+    const cookies = new Cookies();
+    cookies.set('userSession', data.user);
     setUser(data.user);
   }
 
   async function signOut() {
     await supabase.auth.signOut();
+    const cookies = new Cookies();
+    cookies.set('userSession', null);
     setUser(null);
+    window.location.reload();
   }
 
   if (!isOpen) return null;
@@ -43,6 +51,9 @@ const Modal = ({ isOpen, onClose }) => {
             <h2 className="text-xl font-semibold mb-4">
               Eingeloggt als, {user.email}
             </h2>
+            <Link href="/profile">
+              Zum Profil
+            </Link>
             <button
               className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 z-2"
               onClick={signOut}
