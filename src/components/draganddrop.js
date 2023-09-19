@@ -38,7 +38,6 @@ const ImageEditor = ({ setFile, user }) => {
     //   }
     // }
     fileInputRef.current.click();
-
   };
 
   const handleImageInputChange = (e) => {
@@ -71,13 +70,13 @@ const ImageEditor = ({ setFile, user }) => {
 
   return (
     <div>
-        <div>
+      <div>
         <button onClick={toggleMode}>
           {isDrawingMode
             ? "Zum Drop-Bereich wechseln"
             : "Zum Zeichenbereich wechseln"}
         </button>
-        </div>
+      </div>
       {isDrawingMode ? (
         <div>
           <h2>Zeichenbereich:</h2>
@@ -103,9 +102,7 @@ const ImageEditor = ({ setFile, user }) => {
               src={droppedImage}
               alt="Hochgeladenes Bild"
               style={{
-                height: "100%",
-                width: "100%",
-                objectFit: "cover",
+                objectFit: "contain",
               }}
             />
           ) : (
