@@ -10,16 +10,16 @@ export default function Home() {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState("modern");
   const [file, setFile] = useState(null);
 
   useEffect(() => {
     checkUser()
-    .then(() => setIsLoading(false))
-    .catch((error) => {
-      console.error("Fehler beim überprüfen des Benutzers", error);
-      setIsLoading(false);
-    });
+      .then(() => setIsLoading(false))
+      .catch((error) => {
+        console.error("Fehler beim überprüfen des Benutzers", error);
+        setIsLoading(false);
+      });
   }, []);
 
   const checkUser = async () => {
@@ -47,27 +47,31 @@ export default function Home() {
           <p>Lade...</p>
         ) : (
           <div
-          id="image-editor"
-          className="flex flex-row justify-center items-center"
-        >
-          <div>
-            <ImageEditor setFile={handleFileChange} user={user} isLoading={isLoading}/>
+            id="image-editor"
+            className="flex flex-row justify-center items-center"
+          >
+            <div>
+              <ImageEditor
+                setFile={handleFileChange}
+                user={user}
+                isLoading={isLoading}
+              />
+            </div>
+            <div className="flex flex-col items-center justify-center">
+              <DropdownButton
+                handleOption={handleOptionChange}
+                selectedOption={selectedOption}
+              />
+              <GenerateButton
+                handleUpload={handleUploadComplete}
+                option={selectedOption}
+                file={file}
+              />
+            </div>
+            <div>
+              <OutputArea imageUrl={uploadedImageUrl} />
+            </div>
           </div>
-          <div className="flex flex-col items-center justify-center">
-            <DropdownButton
-              handleOption={handleOptionChange}
-              selectedOption={selectedOption}
-            />
-            <GenerateButton
-              handleUpload={handleUploadComplete}
-              option={selectedOption}
-              file={file}
-            />
-          </div>
-          <div>
-            <OutputArea imageUrl={uploadedImageUrl} />
-          </div>
-        </div>
         )}
         <div id="pricing" className="homepage-block">
           <div className="space-y-12 w-full sm:w-auto">
