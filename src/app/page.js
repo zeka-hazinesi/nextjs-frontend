@@ -11,7 +11,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [imgLoading, setImgLoading] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState("modern");
   const [file, setFile] = useState(null);
 
   useEffect(() => {
