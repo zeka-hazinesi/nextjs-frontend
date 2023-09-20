@@ -9,8 +9,9 @@ import { useState, useEffect } from "react";
 export default function Home() {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [imgLoading, setImgLoading] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState("modern");
   const [file, setFile] = useState(null);
 
   useEffect(() => {
@@ -21,6 +22,10 @@ export default function Home() {
       setIsLoading(false);
     });
   }, []);
+
+  const handleLoading = (state) => {
+    setImgLoading(state);
+  }
 
   const checkUser = async () => {
     const l_user = await supabase.auth.getUser(); // eingeloggten User erfassen, oder Null
@@ -60,12 +65,13 @@ export default function Home() {
             />
             <GenerateButton
               handleUpload={handleUploadComplete}
+              handleLoading={handleLoading}
               option={selectedOption}
               file={file}
             />
           </div>
           <div>
-            <OutputArea imageUrl={uploadedImageUrl} />
+            <OutputArea imageUrl={uploadedImageUrl} isLoading={imgLoading} />
           </div>
         </div>
         )}

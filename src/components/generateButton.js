@@ -3,9 +3,10 @@
 import React from "react";
 import { supabase } from "@/lib/supabase";
 
-const GenerateButton = ({ handleUpload, option, file }) => {
+const GenerateButton = ({ handleUpload, handleLoading, option, file}) => {
   const handleGenerateClick = async () => {
     if (file) {
+      handleLoading(true);
       const imageFile = file;
       const api = "https://interior-api.azurewebsites.net/api/HttpTrigger";
 
@@ -26,8 +27,8 @@ const GenerateButton = ({ handleUpload, option, file }) => {
         requestOptions
       )
         .then((response) => response.json())
-        .then((result) => handleUpload(result["link"]))
-        .catch((error) => console.log("error", error));
+        .then((result) => {handleUpload(result["link"]); handleLoading(false);})
+        .catch((error) => {console.log("error", error); handleLoading(false)});
     }
   };
 
