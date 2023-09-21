@@ -1,16 +1,18 @@
-import { create, StoreApi} from 'zustand';
-import { useEffect } from 'react';
-import { supabase } from '../supabase';
+import { create, StoreApi } from "zustand";
+import { useEffect } from "react";
+import { supabase } from "../supabase";
 
 type LoadingState = {
   isLoading: boolean;
   setIsLoading: (value: boolean) => void;
 };
 
-const useLoadingStore = create<LoadingState>((set: StoreApi<LoadingState>["setState"]) => ({
-  isLoading: true,
-  setIsLoading: (value: boolean) => set({ isLoading: value }),
-}));
+const useLoadingStore = create<LoadingState>(
+  (set: StoreApi<LoadingState>["setState"]) => ({
+    isLoading: true,
+    setIsLoading: (value: boolean) => set({ isLoading: value }),
+  })
+);
 
 export const useLoading = () => {
   const { isLoading, setIsLoading } = useLoadingStore();
@@ -23,7 +25,7 @@ export const useLoading = () => {
       setIsLoading(false);
       return user;
     } catch (error) {
-      console.error('Error verifying user', error);
+      console.error("Error verifying user", error);
       setIsLoading(false);
       throw error;
     }
