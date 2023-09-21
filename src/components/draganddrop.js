@@ -1,14 +1,21 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,  useEffect} from "react";
 import DrawingCanvas from "./drawingcanvas";
 import { supabase } from "@/lib/supabase";
 import Modal from "./githubmodal";
 
-const ImageEditor = ({ setFile, user }) => {
+const ImageEditor = ({ setFile, user, sketch }) => {
   const [droppedImage, setDroppedImage] = useState(null);
   const [isDrawingMode, setIsDrawingMode] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const fileInputRef = useRef(null);
+
+  useEffect(() => {
+    // Wenn sich der Sketch ändert, aktualisieren Sie das Bild im Drag-and-Drop-Feld
+    if (sketch) {
+     handleImageUpload(sketch);
+    }
+  }, [sketch]);
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -38,7 +45,6 @@ const ImageEditor = ({ setFile, user }) => {
     //   }
     // }
     fileInputRef.current.click();
-
   };
 
   const handleImageInputChange = (e) => {
@@ -64,6 +70,9 @@ const ImageEditor = ({ setFile, user }) => {
       }
     }
   };
+  const showSketch = () => {
+    console.log(sketch);
+  }
 
   const toggleMode = () => {
     setIsDrawingMode(!isDrawingMode);
@@ -71,13 +80,13 @@ const ImageEditor = ({ setFile, user }) => {
 
   return (
     <div>
-        <div>
+      <div>
         <button onClick={toggleMode}>
           {isDrawingMode
             ? "Zum Drop-Bereich wechseln"
             : "Zum Zeichenbereich wechseln"}
         </button>
-        </div>
+      </div>
       {isDrawingMode ? (
         <div>
           <h2>Zeichenbereich:</h2>
@@ -88,6 +97,7 @@ const ImageEditor = ({ setFile, user }) => {
           id="drag-image"
           onDragOver={handleDragOver}
           onDrop={handleDrop}
+          onClick={showSketch}
           style={{
             width: "400px",
             height: "400px",
@@ -103,9 +113,7 @@ const ImageEditor = ({ setFile, user }) => {
               src={droppedImage}
               alt="Hochgeladenes Bild"
               style={{
-                height: "100%",
-                width: "100%",
-                objectFit: "cover",
+                objectFit: "contain",
               }}
             />
           ) : (
