@@ -1,7 +1,9 @@
 'use client';
+import { useSketchStore } from '@/store';
 import React from 'react';
 
-const Samples = ({selectSketch}) => {
+const Samples = () => {
+    const setSketch = useSketchStore(state => state.setSketch)
     const handleSelectSketch = async (event) => {
         const selectedImagePath = event.target.src;
         const selectedImageBlob = await fetch(selectedImagePath).then(response => response.blob());
@@ -9,7 +11,7 @@ const Samples = ({selectSketch}) => {
         const fileName = url.pathname.split('/').pop();
         const selectedImageFile = new File([selectedImageBlob], fileName, { type: 'image/png' });
         console.log(selectedImageFile)
-        selectSketch(selectedImageFile);
+        setSketch(selectedImageFile);
     }
 
     return(

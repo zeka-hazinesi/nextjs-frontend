@@ -1,16 +1,19 @@
 "use client";
-import React, {useState} from "react";
+import React from "react";
 import "./loading.css";
+import { useImgLoadingStore, useImgUrlStore } from "@/store";
 
-const OutputArea = ({imageUrl, isLoading}) => {
+const OutputArea = () => {
+  const imgLoading = useImgLoadingStore(state => state.imgLoading);
+  const uploadedImgUrl  = useImgUrlStore(state => state.imgUrl);
 
   const handleDownload = () => {
-    if (!imageUrl) return;
+    if (!uploadedImgUrl) return;
   
     const link = document.createElement("a");
 
   // Lädt das Bild als Blob herunter
-    fetch(imageUrl)
+    fetch(uploadedImgUrl)
     .then((response) => response.blob())
     .then((blob) => {
       // Setzt den Blob als HREF für den Link
@@ -46,12 +49,12 @@ const OutputArea = ({imageUrl, isLoading}) => {
           justifyContent: "center",
         }}
       >
-        {isLoading ? (
+        {imgLoading ? (
           <div className="loading-indicator"></div>
-          ) : imageUrl && (
+          ) : uploadedImgUrl && (
           <>
             <img
-              src={imageUrl}
+              src={uploadedImgUrl}
               style={{
                 // Das Bild wird proportional zur Höhe des div skaliert
                 objectFit: "contain",
