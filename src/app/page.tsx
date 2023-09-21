@@ -4,7 +4,6 @@ import Samples from "@/components/Samples";
 import App from "@/components/App";
 import { useUser } from "@/store";
 
-
 export default function Home() {
   const { user } = useUser();
   console.log(user);
