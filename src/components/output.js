@@ -4,7 +4,6 @@ import "./loading.css";
 
 const OutputArea = ({imageUrl, isLoading}) => {
 
-
   const handleDownload = () => {
     if (!imageUrl) return;
   

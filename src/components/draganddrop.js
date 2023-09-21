@@ -1,14 +1,30 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,  useEffect} from "react";
 import DrawingCanvas from "./drawingcanvas";
 import { supabase } from "@/lib/supabase";
 import Modal from "./githubmodal";
 
-const ImageEditor = ({ setFile, user }) => {
+const ImageEditor = ({ setFile, user, sketch }) => {
   const [droppedImage, setDroppedImage] = useState(null);
   const [isDrawingMode, setIsDrawingMode] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const fileInputRef = useRef(null);
+
+  useEffect(() => {
+    // Wenn sich der Sketch ändert, aktualisieren Sie das Bild im Drag-and-Drop-Feld
+    if (sketch) {
+      
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        console.log(e);
+        setDroppedImage(e.target.result);
+        setIsDrawingMode(false); // Wechsle zum Drop-Bereich nach dem Bild-Upload
+      };
+      reader.readAsDataURL(sketch);
+
+    }
+  }, [sketch]);
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -53,6 +69,7 @@ const ImageEditor = ({ setFile, user }) => {
         const reader = new FileReader();
 
         reader.onload = (e) => {
+          console.log(e.target.result);
           setDroppedImage(e.target.result);
           setIsDrawingMode(false); // Wechsle zum Drop-Bereich nach dem Bild-Upload
         };
@@ -63,6 +80,9 @@ const ImageEditor = ({ setFile, user }) => {
       }
     }
   };
+  const showSketch = () => {
+    console.log(sketch);
+  }
 
   const toggleMode = () => {
     setIsDrawingMode(!isDrawingMode);
@@ -87,6 +107,7 @@ const ImageEditor = ({ setFile, user }) => {
           id="drag-image"
           onDragOver={handleDragOver}
           onDrop={handleDrop}
+          onClick={showSketch}
           style={{
             width: "400px",
             height: "400px",
