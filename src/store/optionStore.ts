@@ -2,5 +2,5 @@ import { create } from "zustand";
 
 export const useOptionStore = create((set) => ({
     option: "modern",
-    setOption: (newOption) => set(({option: newOption}))
+    setOption: (newOption: string) => set(({option: newOption}))
 }))
