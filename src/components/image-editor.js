@@ -1,10 +1,13 @@
 "use client";
 import React, { useState, useRef,  useEffect} from "react";
+import { useFileStore, useLoading, useSketchStore, useUser } from "@/store";
 import DrawingCanvas from "./drawingcanvas";
-import { supabase } from "@/lib/supabase";
 import Modal from "./githubmodal";
 
-const ImageEditor = ({ setFile, user, sketch }) => {
+const ImageEditor = () => {
+  const setFile = useFileStore(state => state.setFile);
+  const selectedSketch = useSketchStore(state => state.sketch);
+  const { user } = useUser();
   const [droppedImage, setDroppedImage] = useState(null);
   const [isDrawingMode, setIsDrawingMode] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -12,10 +15,11 @@ const ImageEditor = ({ setFile, user, sketch }) => {
 
   useEffect(() => {
     // Wenn sich der Sketch ändert, aktualisieren Sie das Bild im Drag-and-Drop-Feld
-    if (sketch) {
-     handleImageUpload(sketch);
+    if (selectedSketch) {
+     setFile(selectedSketch);
+     handleImageUpload(selectedSketch);
     }
-  }, [sketch]);
+  }, [selectedSketch]);
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -70,16 +74,13 @@ const ImageEditor = ({ setFile, user, sketch }) => {
       }
     }
   };
-  const showSketch = () => {
-    console.log(sketch);
-  }
 
   const toggleMode = () => {
     setIsDrawingMode(!isDrawingMode);
   };
 
   return (
-    <div>
+    <>
       <div>
         <button onClick={toggleMode}>
           {isDrawingMode
@@ -97,7 +98,6 @@ const ImageEditor = ({ setFile, user, sketch }) => {
           id="drag-image"
           onDragOver={handleDragOver}
           onDrop={handleDrop}
-          onClick={showSketch}
           style={{
             width: "400px",
             height: "400px",
@@ -158,7 +158,7 @@ const ImageEditor = ({ setFile, user, sketch }) => {
         </div>
       )}
       {isModalVisible && <Modal isOpen={isModalVisible} onClose={closeModal} />}
-    </div>
+    </>
   );
 };
 

@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import { useOptionStore } from '@/store';
+import React from 'react';
 
-const DropdownButton = ({handleOption, selectedOption}) => {
+const DropdownButton = () => {
+   const setOption = useOptionStore(state => state.setOption);
+   const option = useOptionStore(state => state.option);
+
+   const handleOption = (e) => {
+		setOption(e.target.value);
+   }
   return (
     <div className="flex flex-col items-center justify-center mb-4">
       <select 
       className="bg-black text-white px-5 py-2 rounded-full ml-4 mr-4 mb-4"
-      defaultValue={selectedOption} onChange={handleOption}>
+      defaultValue={option} onChange={handleOption}>
         							<option value="modern">
 					Modern 				</option>
 							<option value="minimalist">
@@ -77,7 +84,6 @@ const DropdownButton = ({handleOption, selectedOption}) => {
 							<option value="neoclassic">
 					Neoclassic (Pro)				</option>
       </select>
-      <p>{selectedOption}</p>
     </div>
   );
 };

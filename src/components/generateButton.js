@@ -1,12 +1,16 @@
-// UploadButton.js
 "use client";
+import { useFileStore, useImgLoadingStore, useImgUrlStore, useOptionStore } from "@/store";
 import React from "react";
-import { supabase } from "@/lib/supabase";
 
-const GenerateButton = ({ handleUpload, handleLoading, option, file}) => {
+const GenerateButton = () => {
+  const file = useFileStore(state => state.file);
+  const setImgLoading = useImgLoadingStore(state => state.setImgLoading);
+  const setImgUrl = useImgUrlStore(state => state.setImgUrl);
+  const option = useOptionStore(state => state.option);
+  
   const handleGenerateClick = async () => {
     if (file) {
-      handleLoading(true);
+      setImgLoading(true)
       const imageFile = file;
       const api = "https://interior-api.azurewebsites.net/api/HttpTrigger";
 
@@ -27,8 +31,8 @@ const GenerateButton = ({ handleUpload, handleLoading, option, file}) => {
         requestOptions
       )
         .then((response) => response.json())
-        .then((result) => {handleUpload(result["link"]); handleLoading(false);})
-        .catch((error) => {console.log("error", error); handleLoading(false)});
+        .then((result) => {setImgUrl(result["link"]); setImgLoading(false);})
+        .catch((error) => {console.log("error", error); setImgLoading(false)});
     }
   };
 

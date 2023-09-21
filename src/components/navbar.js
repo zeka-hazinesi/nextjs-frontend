@@ -3,21 +3,13 @@ import React, { useEffect, useState } from "react";
 import DropdownMenu from "./dropdown";
 import Modal from "./githubmodal";
 import UpgradeModal from "./upgrademodal";
-import { supabase } from "@/lib/supabase";
+import { useUser } from "@/store";
 
 const NavigationBar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
   const [isUpgradeModalOpen, setUpgradeModalOpen] = useState(false);
-  const [user, setUser] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    checkUser();
-    window.addEventListener("hashchange", function () {
-      checkUser();
-    });
-  }, []);
 
   useEffect(() => {
     // Füge einen Event-Listener für das Scrollen hinzu

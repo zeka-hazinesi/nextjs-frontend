@@ -1,7 +1,9 @@
+import { useUser } from "@/store";
 import React from "react";
 
-const DropdownMenu = ({ openModal, openUpgradeModal, user }) => {
-
+const DropdownMenu = ({ openModal, openUpgradeModal }) => {
+  const { user } = useUser();
+  
   return (
     <div className="absolute top-14 right-0 mt-2 w-40 bg-white border border-gray-300 shadow-lg rounded-lg">
       <ul>
