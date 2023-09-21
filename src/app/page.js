@@ -58,7 +58,11 @@ export default function Home() {
           className="flex flex-row justify-center items-center"
         >
           <div>
-            <ImageEditor setFile={handleFileChange} user={user} isLoading={isLoading}/>
+            <ImageEditor 
+            setFile={handleFileChange} 
+            user={user} 
+            isLoading={isLoading}
+            sketch={selectedSketch}/>
           </div>
           <div className="flex flex-col items-center justify-center">
             <DropdownButton

@@ -13,16 +13,7 @@ const ImageEditor = ({ setFile, user, sketch }) => {
   useEffect(() => {
     // Wenn sich der Sketch ändert, aktualisieren Sie das Bild im Drag-and-Drop-Feld
     if (sketch) {
-      
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        console.log(e);
-        setDroppedImage(e.target.result);
-        setIsDrawingMode(false); // Wechsle zum Drop-Bereich nach dem Bild-Upload
-      };
-      reader.readAsDataURL(sketch);
-
+     handleImageUpload(sketch);
     }
   }, [sketch]);
 
@@ -69,7 +60,6 @@ const ImageEditor = ({ setFile, user, sketch }) => {
         const reader = new FileReader();
 
         reader.onload = (e) => {
-          console.log(e.target.result);
           setDroppedImage(e.target.result);
           setIsDrawingMode(false); // Wechsle zum Drop-Bereich nach dem Bild-Upload
         };
