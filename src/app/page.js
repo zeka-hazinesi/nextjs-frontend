@@ -50,47 +50,32 @@ export default function Home() {
   return (
     <>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        {isLoading ? (
+      {isLoading ? (
           <p>Lade...</p>
         ) : (
           <div
-<<<<<<< Updated upstream
-            id="image-editor"
-            className="flex flex-row justify-center items-center"
-          >
-            <div>
-              <ImageEditor
-                setFile={handleFileChange}
-                user={user}
-                isLoading={isLoading}
-              />
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <DropdownButton
-                handleOption={handleOptionChange}
-                selectedOption={selectedOption}
-              />
-              <GenerateButton
-                handleUpload={handleUploadComplete}
-                option={selectedOption}
-                file={file}
-              />
-            </div>
-            <div>
-              <OutputArea imageUrl={uploadedImageUrl} />
-            </div>
-=======
           id="image-editor"
           className="flex flex-row justify-center items-center"
         >
           <div>
-            <ImageEditor 
-            setFile={handleFileChange} 
-            user={user} 
-            isLoading={isLoading}
-            sketch={selectedSketch} />
->>>>>>> Stashed changes
+            <ImageEditor setFile={handleFileChange} user={user} isLoading={isLoading}/>
           </div>
+          <div className="flex flex-col items-center justify-center">
+            <DropdownButton
+              handleOption={handleOptionChange}
+              selectedOption={selectedOption}
+            />
+            <GenerateButton
+              handleUpload={handleUploadComplete}
+              handleLoading={handleLoading}
+              option={selectedOption}
+              file={file}
+            />
+          </div>
+          <div>
+            <OutputArea imageUrl={uploadedImageUrl} isLoading={imgLoading} />
+          </div>
+        </div>
         )}
         <Samples selectSketch={setSelectedSketch} />
       </main>
