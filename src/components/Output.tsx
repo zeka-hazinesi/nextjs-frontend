@@ -32,19 +32,14 @@ const Output = () => {
     return(
         <div
         id="output"
-        className="h-[500px] w-[705px] flex justify-center items-center rounded-[25px] text-[24pt] text-[#9A8172] bg-[#3B3B3B]">
+        className="h-[500px] w-[705px] flex justify-center items-center rounded-[25px] text-[24pt] text-[#9A8172] bg-[#3B3B3B] relative">
         {imgLoading ? (
           <div className="loading-indicator"></div>
           ) : uploadedImgUrl && (
           <>
             <img
               src={uploadedImgUrl}
-              height={500}
-              width={500}
-              style={{
-                // Das Bild wird proportional zur Höhe des div skaliert
-                objectFit: "contain",
-              }}
+              className="w-full h-full object-cover rounded-[20px]"
             />
           </>
         )}
