@@ -53,14 +53,14 @@ const Imagedrop = () => {
   return (
     <div
       id="imageDrop"
-      className="m-4 h-[219px] w-[300px] flex items-center justify-center rounded-[15px] text-white bg-[#3B3B3B] c-white"
+      className="m-4 h-[219px] w-[300px] flex items-center justify-center rounded-[15px] text-white bg-[#3B3B3B] c-white relative"
       onDragOver={handleDragOver}
       onDrop={handleDrop}>
       {droppedImage && (
         <img
           src={droppedImage as string}
           alt="uploaded Image"
-          className="object-contain"
+          className="w-11/12 h-5/6 object-cover rounded-[20px]"
         />
       )}
       <input
@@ -68,30 +68,14 @@ const Imagedrop = () => {
         type="file"
         accept="image/*"
         onChange={handleImageInputChange}
-        style={{
-          position: "absolute",
-
-          width: "50%",
-          height: "50%",
-          opacity: "0",
-          cursor: "pointer",
-        }}
+        className="absolute w-full h-full opacity-0 cursor-pointer"
         ref={fileInputRef}
       />
       <button
         onClick={() => {
           fileInputRef.current?.click();
         }}
-        style={{
-          position: "absolute",
-
-          width: "50%",
-          height: "50%",
-          border: "none",
-          padding: "0",
-          background: "none",
-          cursor: "pointer",
-        }}></button>
+        className="absolute w-full h-full border-none p-0 bg-none cursor-pointer"></button>
     </div>
   );
 };

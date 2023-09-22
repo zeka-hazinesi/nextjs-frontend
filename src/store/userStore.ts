@@ -7,7 +7,7 @@ type UserState = {
   setUser: (userData: any | null) => void; // Replace 'any' with the actual type of your user data
 };
 
-const useUserStore = create<UserState>(
+export const useUserStore = create<UserState>(
   (set: StoreApi<UserState>["setState"]) => ({
     user: null,
     setUser: (userData: any | null) => set({ user: userData }), // Replace 'any' with the actual type of your user data
@@ -22,7 +22,7 @@ export const useUser = () => {
       // Perform user verification here
       // When the user is verified, set the user in the state
       const loggedUser = await supabase.auth.getUser();
-      setUser(loggedUser);
+      setUser(loggedUser.data.user);
       return loggedUser;
     } catch (error) {
       console.error("Error verifying user", error);

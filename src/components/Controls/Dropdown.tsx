@@ -11,9 +11,8 @@ const Dropdown = () => {
 
   return (
     <div
-      id="dropdownMenu"
-      className="m-4 h-[50px] w-[300px] flex items-center justify-center rounded-[15px]  text-black bg-[#3B3B3B]"
-    >
+      id="selectMenu"
+      className="m-4 h-[50px] w-[300px] flex items-center justify-center rounded-[15px]  text-black bg-[#3B3B3B]">
       <select className="" defaultValue={option} onChange={handleOption}>
         <option value="modern">Modern </option>
         <option value="minimalist">Minimalist </option>
