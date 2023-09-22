@@ -11,7 +11,7 @@ const Dropdown = () => {
 
     return(
         <div
-        id="dropdownMenu"
+        id="selectMenu"
         className="m-4 h-[50px] w-[300px] flex items-center justify-center rounded-[15px]  text-black bg-[#3B3B3B]">
         <select 
       className=""
