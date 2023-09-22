@@ -1,9 +1,14 @@
 import { useUser, useUserStore } from "@/store";
 import { supabase } from "@/supabase";
 import React, { useState } from "react";
+import UserModal from "../UserModal";
+import UpgradeModal from "../UpgradeModal";
 
 const BurgerMenu = () => {
   const [open, setOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [upgradeOpen, setUpgradeOpen] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
   const setUser = useUserStore((state: any) => state.setUser);
   const { user } = useUser();
 
@@ -11,7 +16,22 @@ const BurgerMenu = () => {
   const handleOpenMenu = () => {
     setOpen(!open);
   };
+
+  const openModal = () => {
+    setModalOpen(true);
+  }
+  const closeModal = () => {
+    setModalOpen(false);
+  }
   
+  const openUpgrade = () => {
+    setUpgradeOpen(true);
+  }
+
+  const closeUpgrade = () => {
+    setUpgradeOpen(false);
+  }
+
   const signIn = async() => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'github',
@@ -22,6 +42,8 @@ const BurgerMenu = () => {
     const { error } = await supabase.auth.signOut();
     if(!error) setUser(null);
   }
+
+  console.log(user);
 
   return (
     <div
@@ -47,7 +69,10 @@ const BurgerMenu = () => {
           <ul>
           {user ? (
             <>
-              <li className="text-center">{user.email}</li>
+              <li className="text-center" onClick={openModal}>{user.email}</li>
+              {!subscribed && (
+                <li className="text-center" onClick={openUpgrade}>Upgrade to Pro</li>
+              )}
               <li className="text-center" onClick={signOut}>Sign Out</li></>
             ) : (
               <li className="text-center" onClick={signIn}>Sign in</li>
@@ -55,6 +80,8 @@ const BurgerMenu = () => {
           </ul>
         </div>
       )}
+      <UserModal user={user} isOpen={modalOpen} closeModal={closeModal} />
+      <UpgradeModal user={user} isOpen={upgradeOpen} closeModal={closeUpgrade} />
       <div
         id="overlay"
         className={`fixed top-0 left-0 w-full h-full transition-opacity duration-300 ${
