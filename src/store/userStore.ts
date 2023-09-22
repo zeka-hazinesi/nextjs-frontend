@@ -1,18 +1,16 @@
-import { create, StoreApi } from "zustand";
-import { useEffect } from "react";
-import { supabase } from "../supabase";
+import { create, StoreApi} from 'zustand';
+import { useEffect } from 'react';
+import { supabase } from '../supabase';
 
 type UserState = {
   user: any | null; // Replace 'any' with the actual type of your user data
   setUser: (userData: any | null) => void; // Replace 'any' with the actual type of your user data
 };
 
-const useUserStore = create<UserState>(
-  (set: StoreApi<UserState>["setState"]) => ({
-    user: null,
-    setUser: (userData: any | null) => set({ user: userData }), // Replace 'any' with the actual type of your user data
-  })
-);
+export const useUserStore = create<UserState>((set: StoreApi<UserState>["setState"]) => ({
+  user: null,
+  setUser: (userData: any | null) => set({ user: userData }), // Replace 'any' with the actual type of your user data
+}));
 
 export const useUser = () => {
   const { user, setUser } = useUserStore();
@@ -22,10 +20,10 @@ export const useUser = () => {
       // Perform user verification here
       // When the user is verified, set the user in the state
       const loggedUser = await supabase.auth.getUser();
-      setUser(loggedUser);
+      setUser(loggedUser.data.user);
       return loggedUser;
     } catch (error) {
-      console.error("Error verifying user", error);
+      console.error('Error verifying user', error);
       throw error;
     }
   };
