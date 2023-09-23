@@ -1,12 +1,13 @@
-"use client";
+import Pricing from "@/components/Pricing";
+import { getActiveProductsWithPrices } from "@/utils/supabase-server";
 
-import Pricing from "@/components/pricing";
+export default async function Home() {
+  const products = await getActiveProductsWithPrices();
 
-export default function Home() {
   return (
     <>
       <main className="flex min-h-screen flex-col items-center">
-        <Pricing />
+        <Pricing products={products}/>
       </main>
     </>
   );

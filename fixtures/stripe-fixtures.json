@@ -1,0 +1,79 @@
+{
+    "_meta": {
+        "template_version": 0
+    },
+    "fixtures": [
+        {
+            "name": "basic",
+            "path": "/v1/products",
+            "method": "post",
+            "params": {
+                "name": "Basic",
+                "description": "Basic product description"
+            }
+        },
+        {
+            "name": "price_basic_month",
+            "path": "/v1/prices",
+            "method": "post",
+            "params": {
+                "product": "${basic:id}",
+                "currency": "usd",
+                "billing_scheme": "per_unit",
+                "unit_amount": 2900,
+                "recurring": {
+                    "interval": "month",
+                    "interval_count": 1
+                }
+            }
+        },
+        {
+            "name": "pro",
+            "path": "/v1/products",
+            "method": "post",
+            "params": {
+                "name": "Pro",
+                "description": "Pro product description"
+            }
+        },
+        {
+            "name": "price_pro_month",
+            "path": "/v1/prices",
+            "method": "post",
+            "params": {
+                "product": "${pro:id}",
+                "currency": "usd",
+                "billing_scheme": "per_unit",
+                "unit_amount": 5900,
+                "recurring": {
+                    "interval": "month",
+                    "interval_count": 1
+                }
+            }
+        },
+        {
+            "name": "enterprise",
+            "path": "/v1/products",
+            "method": "post",
+            "params": {
+                "name": "Enterprise",
+                "description": "Enterprise product description"
+            }
+        },
+        {
+            "name": "price_enterprise_month",
+            "path": "/v1/prices",
+            "method": "post",
+            "params": {
+                "product": "${enterprise:id}",
+                "currency": "usd",
+                "billing_scheme": "per_unit",
+                "unit_amount": 9900,
+                "recurring": {
+                    "interval": "month",
+                    "interval_count": 1
+                }
+            }
+        }
+    ]
+}

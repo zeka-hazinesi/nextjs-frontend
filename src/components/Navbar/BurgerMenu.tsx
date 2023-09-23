@@ -42,8 +42,6 @@ const BurgerMenu = () => {
     if (!error) setUser(null);
   };
 
-  console.log(user);
-
   return (
     <div
       id="burgerMenu"

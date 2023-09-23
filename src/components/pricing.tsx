@@ -2,9 +2,54 @@
  * v0 by Vercel Labs.
  * @see https://v0.dev/t/rRBlufM
  */
+"use client";
 import { Button } from "@/components/ui/button";
+import { getStripe } from "@/stripe-client";
+import { postData } from '@/utils/helpers';
+import { Database } from '@/types_db';
+// import { getActiveProductsWithPrices } from '@/utils/supabase-server';
 
-export default function Pricing() {
+
+type Subscription = Database['public']['Tables']['subscriptions']['Row'];
+type Product = Database['public']['Tables']['products']['Row'];
+type Price = Database['public']['Tables']['prices']['Row'];
+
+interface ProductWithPrices extends Product {
+  prices: Price[];
+}
+interface PriceWithProduct extends Price {
+  products: Product | null;
+}
+interface SubscriptionWithProduct extends Subscription {
+  prices: PriceWithProduct | null;
+}
+
+type BillingInterval = 'lifetime' | 'year' | 'month';
+
+interface Props {
+  products: ProductWithPrices[];
+}
+
+
+export default function Pricing({products}: Props) {
+  const handleCheckout = async (price: Price) => {
+    
+    try {
+      const { sessionId } = await postData({
+        url: '/api/create-checkout-session',
+        data: { price }
+      });
+
+      const stripe = await getStripe();
+      stripe?.redirectToCheckout({ sessionId });
+    } catch (error) {
+      return alert((error as Error)?.message);
+    } finally {
+    }
+  };
+
+  // console.log(products);
+
   return (
     <section className="min-h-screen w-full py-12 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-zinc-900 dark:to-zinc-800 flex items-center justify-center">
       <div className="container px-4 md:px-6">
@@ -67,7 +112,7 @@ export default function Pricing() {
               </ul>
             </div>
             <div className="mt-6">
-              <Button className="w-full">Get Started</Button>
+              <Button className="w-full" onClick={() => handleCheckout(products[0].prices[0])}>Get Started</Button>
             </div>
           </div>
           <div className="relative flex flex-col p-6 bg-white shadow-lg rounded-lg dark:bg-zinc-850 justify-between border border-purple-500">
@@ -147,7 +192,7 @@ export default function Pricing() {
               </ul>
             </div>
             <div className="mt-6">
-              <Button className="w-full bg-gradient-to-r from-pink-500 to-purple-500">
+              <Button className="w-full bg-gradient-to-r from-pink-500 to-purple-500" onClick={() => handleCheckout(products[1].prices[0])}>
                 Get Started
               </Button>
             </div>
@@ -242,7 +287,7 @@ export default function Pricing() {
               </ul>
             </div>
             <div className="mt-6">
-              <Button className="w-full">Get Started</Button>
+              <Button className="w-full" onClick={() => handleCheckout(products[2].prices[0])}>Get Started</Button>
             </div>
           </div>
         </div>

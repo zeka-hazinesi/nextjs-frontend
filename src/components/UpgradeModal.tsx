@@ -8,6 +8,7 @@ interface UpgradeModalProps {
 
 const UserModal = ({ user, isOpen, closeModal }: UpgradeModalProps) => {
   if (!isOpen) return null;
+
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div
@@ -15,8 +16,7 @@ const UserModal = ({ user, isOpen, closeModal }: UpgradeModalProps) => {
         onClick={closeModal}></div>
       <div className="modal-content bg-white p-4 rounded shadow-md relative text-center">
         <h2 className="text-xl font-semibold mb-4">Benutzerdetails</h2>
-        <p>Email: {user.email}</p>
-        <p>Manage Subscription</p>
+        <p>Upgrade to Pro</p>
       </div>
     </div>
   );

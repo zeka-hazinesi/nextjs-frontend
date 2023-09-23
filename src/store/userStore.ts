@@ -14,6 +14,7 @@ export const useUserStore = create<UserState>(
   })
 );
 
+//Hook um User zu erfassen
 export const useUser = () => {
   const { user, setUser } = useUserStore();
 
