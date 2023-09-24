@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center drop-shadow-[0_12px_8px_rgba(0,0,0,0.25)]">
+      <main className="flex min-h-full flex-wrap min-w-screen border-4 border-yellow-500 flex-col drop-shadow-[0_12px_8px_rgba(0,0,0,0.25)]">
         <NavBar />
         <App />
         <Samples />

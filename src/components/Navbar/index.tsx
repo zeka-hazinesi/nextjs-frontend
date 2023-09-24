@@ -7,11 +7,13 @@ const NavBar = () => {
   return (
     <div
       id="header"
-      className="sticky top-0 z-50 flex flex-row items-center justify-between w-full h-[60px] bg-[#3B3B3B] p-2">
-      {/* logo */}
-      <Logo />
-      {/* burgermenu */}
-      <BurgerMenu />
+      className="sticky top-0 left-0 z-50 flex flex-row items-center justify-center w-full h-[60px] bg-[#3B3B3B] p-2">
+      <div className="flex flex-row items-center justify-between w-[1920px] max-w-full max-h-full">
+        {/* logo */}
+        <Logo />
+        {/* burgermenu */}
+        <BurgerMenu />
+      </div>
     </div>
   );
 };

@@ -24,9 +24,7 @@ const Samples = () => {
   return (
     <div
       id="examples"
-      className="absolute bottom-0 w-full h-content p-2 bg-[#f4f2f0] mt-36 text-center text-[#9A8172]">
-      <p>reImagine</p>
-    </div>
+      className="sticky bottom-0 w-full h-content bg-[#f4f2f0] mt-36 text-center text-[#9A8172]"></div>
   );
 };
 
