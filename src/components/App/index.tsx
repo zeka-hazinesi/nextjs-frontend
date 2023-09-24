@@ -6,9 +6,8 @@ const App = () => {
   return (
     <div
       id="app"
-      className="flex flex-col w-full h-auto items-center justify-center"
-    >
-      <div className="flex flex-row w-auto h-auto items-center justify-center space-x-36  m-36">
+      className="flex flex-col w-full h-auto items-center justify-center">
+      <div className="flex flex-row w-auto h-auto items-center justify-center space-x-36  m-36 ">
         <Controls />
         <Output />
       </div>

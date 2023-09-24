@@ -27,48 +27,63 @@ const Samples = () => {
       className="flex flex-row justify-between w-auto h-auto space-x-8">
       <div
         id="example1"
-        className="flex flex-col justify-end w-[250px] h-[177px] border-2 border-dashed rounded-[25px] border-[#3B3B3B]">
+        className="relative w-[250px] h-[177px] border rounded-[25px] border-[#9A8172] hover:scale-[1.03] duration-500 ease-in-out cursor-pointer">
         <img
           src="./sketches/sketch-1.jpg"
           onClick={handleSelectSketch}
-          className="rounded-[35px]"
+          className="rounded-[25px] object-cover w-full h-full"
         />
+        <div className="absolute bottom-[0px] rounded-b-[25px] w-full bg-[#9A8172] px-4 py-1 bg-opacity-50 text-center">
+          <p>Livingroom</p>
+        </div>
       </div>
       <div
         id="example2"
-        className="flex items-end justify-end w-[250px] h-[177px] border-2 border-dashed rounded-[25px] border-[#3B3B3B] m-auto">
+        className="relative w-[250px] h-[177px] border rounded-[25px] border-[#9A8172] hover:scale-[1.03] duration-500 ease-in-out cursor-pointer">
         <img
           src="./sketches/sketch-2.png"
           onClick={handleSelectSketch}
-          className="object-scale-down"
+          className="rounded-[25px] object-cover w-full h-full"
         />
+        <div className="absolute bottom-[0px] rounded-b-[25px] w-full bg-[#9A8172] px-4 py-1 bg-opacity-50 text-center">
+          <p>Livingroom</p>
+        </div>
       </div>
       <div
         id="example3"
-        className="flex items-end justify-end w-[250px] h-[177px] border-2 border-dashed rounded-[25px] border-[#3B3B3B]">
+        className="relative w-[250px] h-[177px] border rounded-[25px] border-[#9A8172] hover:scale-[1.03] duration-500 ease-in-out cursor-pointer">
         <img
           src="./sketches/sketch-3.jpg"
           onClick={handleSelectSketch}
-          className="rounded-[35px] m-auto"
+          className="rounded-[25px] object-cover w-full h-full"
         />
+        <div className="absolute bottom-[0px] rounded-b-[25px] w-full bg-[#9A8172] px-4 py-1 bg-opacity-50 text-center">
+          <p>Livingroom</p>
+        </div>
       </div>
       <div
         id="example4"
-        className="flex items-end justify-end w-[250px] h-[177px] border-2 border-dashed rounded-[25px] border-[#3B3B3B]">
+        className="relative w-[250px] h-[177px] border rounded-[25px] border-[#9A8172] hover:scale-[1.03] duration-500 ease-in-out cursor-pointer">
         <img
-          src="./sketches/sketch-1.jpg"
+          src="./sketches/sketch-4.jpg"
           onClick={handleSelectSketch}
-          className="rounded-[35px]"
+          className="rounded-[25px] object-cover w-full h-full"
         />
+        <div className="absolute bottom-[0px] rounded-b-[25px] w-full bg-[#9A8172] px-4 py-1 bg-opacity-50 text-center">
+          <p>Bathroom</p>
+        </div>
       </div>
       <div
         id="example5"
-        className="flex items-end justify-end w-[250px] h-[177px] border-2 border-dashed rounded-[25px] border-[#3B3B3B]">
+        className="relative w-[250px] h-[177px] border rounded-[25px] border-[#9A8172] hover:scale-[1.03] duration-500 ease-in-out cursor-pointer">
         <img
           src="./sketches/sketch-1.jpg"
           onClick={handleSelectSketch}
-          className="rounded-[35px]"
+          className="rounded-[25px] object-cover w-full h-full"
         />
+        <div className="absolute bottom-[0px] rounded-b-[25px] w-full bg-[#9A8172] px-4 py-1 bg-opacity-50 text-center">
+          <p>Livingroom</p>
+        </div>
       </div>
     </div>
   );

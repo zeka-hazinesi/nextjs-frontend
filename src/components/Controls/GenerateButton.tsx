@@ -49,7 +49,7 @@ const GenerateButton = () => {
   return (
     <div
       id="generate"
-      className="m-4 h-[50px] w-[300px] flex items-center justify-center rounded-[15px] text-white bg-[#9A8172] cursor-pointer"
+      className="m-3 h-[50px] w-[300px] flex items-center justify-center rounded-[15px] text-[#9A8172] border hover:bg-[#9A8172] duration-300 ease-in-out hover:text-[#f4f2f0] border-[#9A8172] bg-[#f4f2f0] cursor-pointer drop-shadow-[0_12px_8px_rgba(0,0,0,0.25)]"
       onClick={handleGenerateClick}>
       <p>reImagine</p>
     </div>
