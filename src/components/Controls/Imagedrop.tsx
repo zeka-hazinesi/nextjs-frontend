@@ -52,42 +52,44 @@ const Imagedrop = () => {
   };
 
   return (
-    <div
-      id="imageDrop"
-      className="m-3 h-[219px] w-[300px] flex flex-col items-center justify-center rounded-[15px] text-[#3B3B3B] border border-[#9A8172] bg-[#f4f2f0] c-white relative drop-shadow-[0_12px_8px_rgba(0,0,0,0.25)] hover:scale-[1.02] duration-500 ease-in-out"
-      onDragOver={handleDragOver}
-      onDrop={handleDrop}>
-      {droppedImage ? (
-        <img
-          src={droppedImage as string}
-          alt="uploaded Image"
-          className="rounded-[15px] object-cover w-full h-full"
-        />
-      ) : (
-        <div className="flex flex-col items-center">
+    <div className="border-4 border-purple-500 m-3">
+      <div
+        id="imageDrop"
+        className="md:h-[250px] lg:h-[285px] xl:h-[321px] md:w-[350px] lg:w-[400px] xl:w-[450px] flex-auto max-w-full h-[214px] w-[300px] flex flex-col items-center justify-center rounded-[15px] text-[#3B3B3B] border border-[#9A8172] bg-[#f4f2f0] c-white relative drop-shadow-[0_12px_8px_rgba(0,0,0,0.25)] hover:scale-[1.02] duration-500 ease-in-out"
+        onDragOver={handleDragOver}
+        onDrop={handleDrop}>
+        {droppedImage ? (
           <img
-            src="file.svg"
-            alt="default Image"
-            className="rounded-[15px] object-cover w-[100px]"
+            src={droppedImage as string}
+            alt="uploaded Image"
+            className="rounded-[15px] object-cover w-full h-full"
           />
-          <p id="text" className={droppedImage ? "invisible" : ""}>
-            Upload or drop a file
-          </p>
-        </div>
-      )}
-      <input
-        id="upload-image"
-        type="file"
-        accept="image/*"
-        onChange={handleImageInputChange}
-        className="absolute w-full h-full opacity-0 cursor-pointer"
-        ref={fileInputRef}
-      />
-      <button
-        onClick={() => {
-          fileInputRef.current?.click();
-        }}
-        className="absolute w-full h-full border-none p-0 bg-none cursor-pointer "></button>
+        ) : (
+          <div className="flex flex-col items-center">
+            <img
+              src="file.svg"
+              alt="default Image"
+              className="rounded-[15px] object-cover w-[100px] animate-bounce"
+            />
+            <p id="text" className={droppedImage ? "invisible" : ""}>
+              Upload or drop a file
+            </p>
+          </div>
+        )}
+        <input
+          id="upload-image"
+          type="file"
+          accept="image/*"
+          onChange={handleImageInputChange}
+          className="absolute w-full h-full opacity-0 cursor-pointer"
+          ref={fileInputRef}
+        />
+        <button
+          onClick={() => {
+            fileInputRef.current?.click();
+          }}
+          className="absolute w-full h-full border-none p-0 bg-none cursor-pointer "></button>
+      </div>
     </div>
   );
 };

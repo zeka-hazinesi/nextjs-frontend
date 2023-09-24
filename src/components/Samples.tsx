@@ -24,65 +24,67 @@ const Samples = () => {
   return (
     <div
       id="examples"
-      className="flex flex-row justify-between w-auto h-auto space-x-8">
-      <div
-        id="example1"
-        className="relative w-[250px] h-[177px] border rounded-[25px] border-[#9A8172] hover:scale-[1.03] duration-500 ease-in-out cursor-pointer">
-        <img
-          src="./sketches/sketch-1.jpg"
-          onClick={handleSelectSketch}
-          className="rounded-[25px] object-cover w-full h-full"
-        />
-        <div className="absolute bottom-[0px] rounded-b-[25px] w-full bg-[#9A8172] px-4 py-1 bg-opacity-50 text-center">
-          <p>Livingroom</p>
+      className="flex items-center justify-center w-full h-auto pl-8 pr-8">
+      <div className="flex flex-row items-center w-[1920px] max-w-full max-h-auto justify-center 2xl:justify-between space-x-8 pl-8 pr-8">
+        <div
+          id="example1"
+          className="sm:block hidden relative w-[320px] h-[227px] border rounded-[25px] border-[#9A8172] hover:scale-[1.03] duration-500 ease-in-out cursor-pointer">
+          <img
+            src="./sketches/sketch-1.jpg"
+            onClick={handleSelectSketch}
+            className="rounded-[25px] object-cover w-full h-full"
+          />
+          <div className="absolute bottom-[0px] rounded-b-[25px] w-full bg-[#9A8172] px-4 py-1 bg-opacity-50 text-center">
+            <p>Livingroom</p>
+          </div>
         </div>
-      </div>
-      <div
-        id="example2"
-        className="relative w-[250px] h-[177px] border rounded-[25px] border-[#9A8172] hover:scale-[1.03] duration-500 ease-in-out cursor-pointer">
-        <img
-          src="./sketches/sketch-2.png"
-          onClick={handleSelectSketch}
-          className="rounded-[25px] object-cover w-full h-full"
-        />
-        <div className="absolute bottom-[0px] rounded-b-[25px] w-full bg-[#9A8172] px-4 py-1 bg-opacity-50 text-center">
-          <p>Livingroom</p>
+        <div
+          id="example2"
+          className="md:block hidden relative w-[320px] h-[227px] border rounded-[25px] border-[#9A8172] hover:scale-[1.03] duration-500 ease-in-out cursor-pointer">
+          <img
+            src="./sketches/sketch-2.png"
+            onClick={handleSelectSketch}
+            className="rounded-[25px] object-cover w-full h-full"
+          />
+          <div className="absolute bottom-[0px] rounded-b-[25px] w-full bg-[#9A8172] px-4 py-1 bg-opacity-50 text-center">
+            <p>Livingroom</p>
+          </div>
         </div>
-      </div>
-      <div
-        id="example3"
-        className="relative w-[250px] h-[177px] border rounded-[25px] border-[#9A8172] hover:scale-[1.03] duration-500 ease-in-out cursor-pointer">
-        <img
-          src="./sketches/sketch-3.jpg"
-          onClick={handleSelectSketch}
-          className="rounded-[25px] object-cover w-full h-full"
-        />
-        <div className="absolute bottom-[0px] rounded-b-[25px] w-full bg-[#9A8172] px-4 py-1 bg-opacity-50 text-center">
-          <p>Livingroom</p>
+        <div
+          id="example3"
+          className="lg:block hidden relative w-[320px] h-[227px] border rounded-[25px] border-[#9A8172] hover:scale-[1.03] duration-500 ease-in-out cursor-pointer">
+          <img
+            src="./sketches/sketch-3.jpg"
+            onClick={handleSelectSketch}
+            className="rounded-[25px] object-cover w-full h-full"
+          />
+          <div className="absolute bottom-[0px] rounded-b-[25px] w-full bg-[#9A8172] px-4 py-1 bg-opacity-50 text-center">
+            <p>Livingroom</p>
+          </div>
         </div>
-      </div>
-      <div
-        id="example4"
-        className="relative w-[250px] h-[177px] border rounded-[25px] border-[#9A8172] hover:scale-[1.03] duration-500 ease-in-out cursor-pointer">
-        <img
-          src="./sketches/sketch-4.jpg"
-          onClick={handleSelectSketch}
-          className="rounded-[25px] object-cover w-full h-full"
-        />
-        <div className="absolute bottom-[0px] rounded-b-[25px] w-full bg-[#9A8172] px-4 py-1 bg-opacity-50 text-center">
-          <p>Bathroom</p>
+        <div
+          id="example4"
+          className="xl:block hidden relative w-[320px] h-[227px] border rounded-[25px] border-[#9A8172] hover:scale-[1.03] duration-500 ease-in-out cursor-pointer">
+          <img
+            src="./sketches/sketch-4.jpg"
+            onClick={handleSelectSketch}
+            className="rounded-[25px] object-cover w-full h-full"
+          />
+          <div className="absolute bottom-[0px] rounded-b-[25px] w-full bg-[#9A8172] px-4 py-1 bg-opacity-50 text-center">
+            <p>Bathroom</p>
+          </div>
         </div>
-      </div>
-      <div
-        id="example5"
-        className="relative w-[250px] h-[177px] border rounded-[25px] border-[#9A8172] hover:scale-[1.03] duration-500 ease-in-out cursor-pointer">
-        <img
-          src="./sketches/sketch-1.jpg"
-          onClick={handleSelectSketch}
-          className="rounded-[25px] object-cover w-full h-full"
-        />
-        <div className="absolute bottom-[0px] rounded-b-[25px] w-full bg-[#9A8172] px-4 py-1 bg-opacity-50 text-center">
-          <p>Livingroom</p>
+        <div
+          id="example5"
+          className="2xl:block hidden relative w-[320px] h-[227px] border rounded-[25px] border-[#9A8172] hover:scale-[1.03] duration-500 ease-in-out cursor-pointer">
+          <img
+            src="./sketches/sketch-1.jpg"
+            onClick={handleSelectSketch}
+            className="rounded-[25px] object-cover w-full h-full"
+          />
+          <div className="absolute bottom-[0px] rounded-b-[25px] w-full bg-[#9A8172] px-4 py-1 bg-opacity-50 text-center">
+            <p>Livingroom</p>
+          </div>
         </div>
       </div>
     </div>

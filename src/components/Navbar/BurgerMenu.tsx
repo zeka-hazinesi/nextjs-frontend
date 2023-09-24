@@ -47,7 +47,7 @@ const BurgerMenu = () => {
   return (
     <div
       id="burgerMenu"
-      className="relative flex flex-col justify-between w-[40px] h-[40px] bg-[#3B3B3B] mr-4 cursor-pointer"
+      className="relative flex flex-col justify-between w-[40px] h-[40px] bg-[#3B3B3B] mr-1 cursor-pointer"
       onClick={handleOpenMenu}>
       <div
         id="bar1"
