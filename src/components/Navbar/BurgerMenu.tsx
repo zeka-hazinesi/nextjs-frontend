@@ -47,19 +47,19 @@ const BurgerMenu = () => {
   return (
     <div
       id="burgerMenu"
-      className="relative flex flex-col justify-between w-[40px] h-[40px] bg-[#000000] mr-16"
+      className="relative flex flex-col justify-between w-[40px] h-[40px] bg-[#3B3B3B] mr-4 cursor-pointer"
       onClick={handleOpenMenu}>
       <div
         id="bar1"
-        className="w-[40px] h-[4px] bg-white rounded-sm mt-2"></div>
-      <div id="bar2" className="w-[40px] h-[4px] bg-white rounded-sm"></div>
+        className="w-[40px] h-[4px] bg-[#f4f2f0] rounded-sm mt-2"></div>
+      <div id="bar2" className="w-[40px] h-[4px] bg-[#f4f2f0] rounded-sm"></div>
       <div
         id="bar3"
-        className="w-[40px] h-[4px] bg-white rounded-sm mb-2"></div>
+        className="w-[40px] h-[4px] bg-[#f4f2f0] rounded-sm mb-2"></div>
       {open && (
         <div
           id="dropdownMenu"
-          className="absolute top-[48px] left-1/3 transform -translate-x-1/2 w-[180px] bg-white shadow-lg z-10">
+          className="absolute top-[48px] left-1/3 transform -translate-x-1/2 w-[90px] bg-[#f4f2f0] shadow-lg z-10">
           {/* Hier kannst du den Inhalt deines Dropdown-Menüs platzieren */}
           <ul>
             {user ? (

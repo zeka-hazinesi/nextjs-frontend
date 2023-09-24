@@ -1,13 +1,15 @@
 import React from "react";
 import Imagedrop from "./Imagedrop";
-import Dropdown from "./Dropdown";
+import StylesDropdown from "./StylesDropdown";
+import RoomsDropdown from "./RoomsDropdown";
 import GenerateButton from "./GenerateButton";
 
 const Controls = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-[500px] w-[354px] rounded-[25px] border border-[#3B3B3B]">
+    <div className="flex flex-col items-center justify-center h-[500px] w-[354px] rounded-[25px] border bg-[#f4f2f0] border-[#9A8172]">
       <Imagedrop />
-      <Dropdown />
+      <RoomsDropdown />
+      <StylesDropdown />
       <GenerateButton />
     </div>
   );

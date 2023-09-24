@@ -2,6 +2,7 @@
 import NavBar from "@/components/Navbar";
 import Samples from "@/components/Samples";
 import App from "@/components/App";
+import Footer from "@/components/Footer";
 import { useUser } from "@/store";
 
 export default function Home() {
@@ -10,10 +11,11 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center">
+      <main className="flex min-h-screen flex-col items-center drop-shadow-[0_12px_8px_rgba(0,0,0,0.25)]">
         <NavBar />
         <App />
         <Samples />
+        <Footer />
       </main>
     </>
   );
