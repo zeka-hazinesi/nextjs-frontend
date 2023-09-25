@@ -6,7 +6,7 @@ import GenerateButton from "./GenerateButton";
 
 const Controls = () => {
   return (
-    <div className="border-4 border-blue-500  justify-center items-center">
+    <div className="justify-center items-center">
       <div className="flex flex-col items-center justify-center max-w-full h-[700px] w-[500px] rounded-[25px] border bg-[#f4f2f0] border-[#9A8172]">
         <Imagedrop />
         <RoomsDropdown />

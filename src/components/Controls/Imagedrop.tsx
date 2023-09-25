@@ -52,7 +52,7 @@ const Imagedrop = () => {
   };
 
   return (
-    <div className="border-4 border-purple-500 m-3">
+    <div className="m-3">
       <div
         id="imageDrop"
         className="md:h-[250px] lg:h-[285px] xl:h-[321px] md:w-[350px] lg:w-[400px] xl:w-[450px] flex-auto max-w-full h-[214px] w-[300px] flex flex-col items-center justify-center rounded-[15px] text-[#3B3B3B] border border-[#9A8172] bg-[#f4f2f0] c-white relative drop-shadow-[0_12px_8px_rgba(0,0,0,0.25)] hover:scale-[1.02] duration-500 ease-in-out"
